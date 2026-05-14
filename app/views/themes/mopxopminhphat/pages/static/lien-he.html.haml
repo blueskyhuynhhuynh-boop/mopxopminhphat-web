@@ -1,0 +1,72 @@
+%h1.d-none= page.name
+= render_view "components/menu"
+%main.container-fluid#Contact
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-Contact-image{:alt => "Banner", :src => "/tassets/images/banner-catgory.webp"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          %a{:href => page_path(page)}
+          = page.name
+  %section.Contact.py-md-5.py-4
+    .container.containerFix1300
+      .row 
+        .col-md-12.col-xs-12
+          .right 
+            %h2.text1.text-center.wk-editable-text#Contact-text CÔNG TY TNHH CÁCH ÂM CÁCH NHIỆT 
+            .text-contact.text-center
+              %h3= "ĐỊA CHỈ:" + " " + "#{web_config("office_address")}"
+              %p
+                %strong= "Điện thoại:" + " " + "#{web_config("phone")}" + " - " + "Email:" + " " + "#{web_config("email")}"
+            .text-contact.text-center
+              %h3= "ĐỊA CHỈ:" + " " + "#{web_config("office_address2")}"
+              %p
+                %strong= "Điện thoại:" + " " + "#{web_config("phone1")}" + " - " + "Email:" + " " + "#{web_config("email2")}"
+            .view-map
+              %a.scroll-to{:href => "#map",:title => "map"}
+                %i.fa-solid.fa-location-dot.mb-0
+                Bản đồ
+        
+  %section.FormContact.py-md-5.py-4
+    .container.containerFix1300
+      .wrap-form
+        %h2.text-center.tit.wk-editable-text#Contact-text1 Hãy để Phương Nam Panel lắng nghe, chia sẻ, giải đáp các thắc mắc, nhu cầu hay ý kiến đóng góp của bạn bằng cách điền vào bản thông tin dưới đây:
+        %form.menu-list.contact-form.dang-ky-tu-van{:target=> "/thank-you"}
+          = hidden_field_tag :authenticity_token, form_authenticity_token
+          = hidden_field_tag :form, 'lien-he'
+          .row
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .form-group
+                %label.name Họ tên *
+                %input.input-tag{type:'text',name:'name'}
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .form-group
+                %label.name Email *
+                %input.input-tag{type:'text',name:'email'}
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .form-group
+                %label.name Điện thoại *
+                %input.input-tag{type:'tel',name:'phone'}
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .form-group
+                %label.name Công ty *
+                %input.input-tag{type:'text',name:'extra[cong-ty]'}
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              .form-group
+                %label.name Nội dung liên lạc *
+                %textarea.input-tag.textArea{type:'text',name:'note'}
+            %button.home-more.t-center
+              %i.fa-solid.fa-paper-plane.mb-0.mr-2
+              Gửi
+        
+              
+  %section.link-map#map
+    .dad-block-30
+      = web_config("map")
+      
+           
+= render_view "components/footer"

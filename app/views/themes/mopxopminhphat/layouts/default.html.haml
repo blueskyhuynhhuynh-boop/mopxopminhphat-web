@@ -1,0 +1,79 @@
+!!!
+%html{:lang => "vi"}
+  %head
+    %title= meta_title
+    = favicon_link_tag web_config("favicon_url")
+    %link{:href => canonical_url, :rel => "canonical"}
+
+    - all_meta_tags.each do |tag|
+      %meta{tag}
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = action_cable_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": false
+    = javascript_include_tag "application", "data-turbo-track": false, defer: false
+    = auto_discovery_link_tag :atom, feed_url(:format => :atom)
+
+    - if meta_content.seo_schema.present?
+      %script{:type => "application/ld+json"}
+        = meta_content.seo_schema.to_json.html_safe
+    - if meta_content.seo_schema_breadcumb.present?
+      %script{:type => "application/ld+json"}
+        = meta_content.seo_schema_breadcumb.to_json.html_safe
+
+    /them font Nunito Sans
+    %link{ rel: "preconnect", href: "https://fonts.googleapis.com" }
+    %link{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }
+    %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" }
+
+
+    /above the fold
+
+
+    / OwlCarousel2
+    %link{:crossorigin => "anonymous", :href => "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css", :integrity => "sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==", :referrerpolicy => "no-referrer", :rel => "stylesheet"}/
+    %script{src: "https://unpkg.com/aos@2.3.1/dist/aos.js", defer: true}
+    
+    / cdn aos library
+    %link{href: "https://unpkg.com/aos@2.3.1/dist/aos.css", rel: "stylesheet"}/
+    %script{:crossorigin => "anonymous", :integrity => "sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==", :referrerpolicy => "no-referrer", :src => "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", defer: true}
+    
+    
+    - if ::Rails.env.production?
+      = stylesheet_link_tag "theme.#{Theme.current.name}"
+      = javascript_include_tag "theme.#{Theme.current.name}"
+    - else
+      = theme_inline_stylesheet
+      = theme_inline_javascript
+
+    - if Settings.enable_google_tracking? && web_config('gtm.script.head').present?
+      = web_config('gtm.script.head')
+
+    - if Settings.enable_google_tracking? && web_config('gtag.script').present?
+      = web_config('gtag.script')
+    - if meta_content.tracking_head.present?
+      = meta_content.tracking_head.html_safe
+  %body
+    - if meta_content.tracking_body.present?
+      = meta_content.tracking_body.html_safe
+    :javascript
+      var assetHost = "#{ENV['ASSET_HOST'].to_s}";
+      window.gtranslateSettings = {
+        default_language: "vi",
+        detect_browser_language: false,
+        wrapper_selector: ".gtranslate_wrapper",
+        flag_style: "2d",
+        flag_size: 24,
+        languages: ["vi","en", "fr", "zh-CN", "ja", "ko"],
+        native_language_names: true,
+        url_structure: "none"
+      };
+
+
+    - if Settings.enable_google_tracking? && web_config('gtm.script.body').present?
+      = web_config('gtm.script.body')
+
+    = fill_custom_page_content(yield)
+  
+  

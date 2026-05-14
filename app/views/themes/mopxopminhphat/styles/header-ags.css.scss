@@ -1,0 +1,104 @@
+#menu_desktop {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  will-change: transform;
+  transition: transform 0.2s linear, background-color 0.2s, color 0.2s,
+    padding 0.2s, box-shadow 0.2s;
+  .blockover {
+    background-color: #fff;
+    .rowFix {
+      padding: 8px 20px;
+      margin: 0;
+      gap: 10px;
+      justify-content: flex-end;
+      .left {
+        display: flex;
+        align-items: center;
+        .text1 {
+          color: var(--xanh_chu_da0);
+          margin-bottom: 3px;
+        }
+        .btn {
+          color: var(--xanh_chu_da0);
+          padding: 6px;
+        }
+      }
+      .right {
+        display: flex;
+        gap: 14px;
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .icon {
+            margin-bottom: 0;
+            color: var(--xanh_chu_da0);
+          }
+          .contactCallPopUp {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+.header {
+  .main-header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+    .logo {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+#menu_mobile {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--xanh_chu_da0);
+  will-change: transform;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 18px 0px;
+  transition: transform 0.2s linear, background-color 0.2s, color 0.2s,
+    padding 0.2s, box-shadow 0.2s;
+  .container {
+    .main-header {
+      height: 54px;
+      justify-content: space-between;
+      align-items: center;
+      .logo-mobile {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #blockCateMobile {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #menu_desktop {
+    display: none;
+  }
+  #menu_desktop2 {
+    display: none;
+  }
+  #menu_mobile {
+    display: block;
+  }
+}
+

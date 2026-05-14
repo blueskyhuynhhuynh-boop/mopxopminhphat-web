@@ -1,0 +1,13 @@
+.registationPart
+  %p.title2 ĐĂNG KÝ NHẬN BẢN TIN
+  .formRegistration
+    %form.contact-form.row.mx-0.dang-ky-tu-van{target: page_path('thank-you')}
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+      = hidden_field_tag :form, 'dang-ky-tu-van'
+      .wrapInput.fullName
+        %input.form-control#name1{:placeholder => "Họ và tên", :type => "text",name:'name'}/
+      .wrapInput.fullName
+        %input.form-control#phone1{:placeholder => "Số điện thoại", :type => "tel",name:'phone'}/
+      .wrapInput.fullName
+        %input.form-control#email1{:placeholder => "Email", :type => "text",name:'email'}/
+      %button.btnFix.btn.btn-warning ĐĂNG KÝ

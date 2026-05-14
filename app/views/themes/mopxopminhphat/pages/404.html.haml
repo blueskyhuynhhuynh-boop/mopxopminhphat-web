@@ -1,0 +1,13 @@
+= render_view "components/menu"
+.block404{:style=>"margin-top:120px"}
+  .container
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-12
+        %h1 404
+        %h2 KHÔNG TÌM THẤY TRANG - BẠN VÀO SAI LINK!
+        .row.btnBlock
+          .col-6
+            %a{:href => root_path} Trở về trang chủ
+        %h3 Nếu bạn cần hỗ trợ, vui lòng gọi đến số điện thoại:
+        %p=web_config('phone')
+= render_view "components/footer"

@@ -1,0 +1,99 @@
+@mixin breakpoint($size, $type) {
+  @media only screen and (#{$type}-width : $size + px) {
+    @content;
+  }
+}
+
+.tableOfContent {
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 70%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  .title {
+    position: relative;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--xanh_chu_da0);
+    padding-left: 40px;
+    &:before {
+      position: absolute;
+      font-family: "Font Awesome 6 Free";
+      content: "\f0c9";
+      font-size: 30px;
+      top: 50%;
+      font-weight: 900;
+      left: 10px;
+      transform: translate(-50%, -50%);
+    }
+    .fa-angle-down {
+      position: absolute;
+      right: 0;
+      top: 2px;
+      margin: 0;
+      font-size: 30px;
+      cursor: pointer;
+      &:hover {
+        color: var(--xanh_chu_da0);
+      }
+    }
+  }
+  @include breakpoint(576, min) {
+    .title {
+      .fa-angle-down {
+        display: none;
+      }
+    }
+  }
+  @include breakpoint(991, max) {
+    width: 100%;
+  }
+
+  .mucLucPart {
+    visibility: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: 0.4s;
+    position: relative;
+    top: -100px;
+    padding-top: 15px;
+    ul {
+      padding-left: 15px;
+      li {
+        list-style: none !important;
+        a {
+          color: #000;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+      li.sub_data {
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.tableOfContent.appearContent {
+  .mucLucPart {
+    visibility: visible;
+    max-height: 500vh;
+    height: unset;
+    opacity: 1;
+    top: 0;
+    li a {
+      display: inline-block;
+      &:hover {
+        color: var(--xanh_chu_da0) !important;
+      }
+    }
+  }
+
+  .clickToggle {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,29 @@
+-if (posts = Post.lastest.limit(3).to_a)  
+  .specialBlock_16.generalMG
+    .container
+      .titleBlock_1
+        %p.titleText_1 TIN TỨC LIÊN QUAN
+        .underTitle
+      .row.rowFix
+        - posts.each do |post| 
+          .smallBlock
+            .specialBlock_17
+              %a.imgPart.figure1{:href => post_path(post)}
+                %img{:alt => post.name, :src => post.image_url, :loading => "lazy"}/
+              .textPart
+                %a.aTagTitle{:href => post_path(post)}
+                  %p.titleNews= post.name
+                .part_1
+                  %a.text
+                    %i.fa.fa-clock-o{"aria-hidden" => "true"}
+                    %i.iTagText= post['created_at'].localtime.strftime(' %d Tháng %m, %Y')
+                -if  post.description.present?   
+                  %p.description= post.description
+                -elsif  post.content.body.present?   
+                  %p.description= ActionController::Base.helpers.strip_tags(post.content.body.slice(0..700))
+                -else  
+        
+      .btnViewAll
+        %a.btnType_1{:href => "/tin-tuc/"} XEM TẤT CẢ
+
+        

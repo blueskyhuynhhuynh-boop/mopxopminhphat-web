@@ -1,0 +1,221 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require owl.carousel
+ *= require owl.theme
+ */
+/*phan chung cho tat cac cac trang cua du an đã có trong HomeCss rồi, viết 1 lần thôi*/
+/** {
+	font-family: 'Roboto', sans-serif;
+}*/
+/*End phan chung cho tat cac cac trang cua du an*/
+.noti {
+	color: red;
+}
+
+#contactPage {
+	padding: 0;
+	background-image: url('/tassets/images/bgComingSoon.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position-y: 50%;
+	background-size: cover;
+}
+
+#contactPage a {
+	text-decoration: none;
+}
+
+/*contactBlock*/
+.contactBlock {
+	padding-top: 0rem;
+}
+
+.contactBlock .formPersonnalInfor {
+	width: 55%;
+}
+
+/*.contactBlock .quickContact {
+	width: 45%;
+	background-color: #e1e1e4;
+}
+*/
+/*formPersonnalInfor dung chung*/
+	.formPersonnalInfor {
+		padding: 0 2rem 0 1rem;
+		color: #f2f2f2;
+	}
+
+	.formPersonnalInfor .textPart h3 {
+		font-size: 1.25rem;
+	}
+
+	.formPersonnalInfor .textPart .underline {
+		height: 2px;
+		background-color: #f2f2f2;
+		width: 8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.formPersonnalInfor .textPart i {
+		font-style: normal;
+	}
+
+	.formPersonnalInfor .textPart i.boldText {
+		font-weight: 700;
+	}
+
+	.formPersonnalInfor .formDeTtin {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.formPersonnalInfor .formDeTtin .form-group {
+		margin-bottom: 2rem;
+	}
+
+	.formPersonnalInfor .formDeTtin .form-group .form-control {
+		border-radius: 0;
+	}
+
+	.formPersonnalInfor .formDeTtin .btnPart {
+		text-align: center;
+	}
+
+	/*.formPersonnalInfor .formDeTtin .btnPart .btnFix {
+	  padding-right: 2rem;
+	  padding-left: 2rem;
+	  border-radius: 5px;
+	  color: white;
+	  background-color: #d9001b;
+	  border: none;
+	  width: 100%;
+	}*/
+
+	/*.formPersonnalInfor .formDeTtin .btnPart .btnFix:hover {
+		background-color: #f5b325;
+		font-weight: 700;
+		cursor: pointer;
+	}*/
+
+	@media only screen and (max-width: 991px) {
+		.formPersonnalInfor {
+			padding: 0 1rem;
+		}
+	}
+	
+/*End formPersonnalInfor*/
+
+/*quickContact dung chung*/
+	.quickContact {
+	  padding: 1rem;
+	}
+
+	.quickContact .textPart {
+		margin-bottom: 1.5rem;
+	}
+
+	.quickContact .textPart h3 {
+		font-size: 1.25rem;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.quickContact .textPart p {
+		font-size: 0.9rem;
+	}
+
+	.quickContact .smallPart h4 {
+		font-size: 1.1rem;
+	}
+
+	.quickContact .smallPart {
+		padding-left: 4.5rem;
+		position: relative;
+		margin-bottom: 2rem;
+	}
+
+	/*.quickContact .smallPart:before {
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid #f5b325;
+    background-color: #ffffff;
+	}*/
+
+	.quickContact .smallPart p {
+		margin-bottom: 0.3rem;
+	}
+
+	.quickContact .smallPart a {
+		color: #000;
+	}
+
+	/*.quickContact .smallPart i.fa {
+		position: absolute;
+	  font-size: 2rem;
+	  color: #f5b325;
+	}*/
+
+	.quickContact .smallPart i.fa-map-marker {
+	  top: 10px;
+	  left: 20px;
+	}
+
+	.quickContact .smallPart i.fa-phone {
+	  top: 10px;
+	  left: 16px;
+	}
+
+	.quickContact .smallPart i.fa-envelope {
+	  top: 10px;
+	  left: 12.5px;
+	}
+/*End quickContact*/
+
+@media only screen and (min-width: 991px) {
+	#contactPage {
+		height: 125vh;
+		padding-top: 5vh;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.contactBlock .formPersonnalInfor {
+		width: 100%;
+		margin-bottom: 1.5rem;
+	}
+	.contactBlock .quickContact {
+		width: 100%;
+		border: none;
+	}
+
+}
+
+.noti-message {
+	color: red;
+}
+/*End contactBlock*/
+.aTagLink {
+	font-size: inherit;
+	color: inherit;
+	text-decoration: underline;
+	text-decoration: none;
+}
+.aTagLink:hover {
+	color: orange;
+	box-shadow: 0 1px tomato;
+}

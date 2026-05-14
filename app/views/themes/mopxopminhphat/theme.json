@@ -1,0 +1,320 @@
+{
+  "name": "Mopxopminhphat",
+  "version": "1",
+  "web_configs": {
+    "website.name": "Mopxopminhphat",
+    "favicon_url": "/tassets/images/logo-n.png",
+    "logo_url": "/tassets/images/logo-n.png",
+    "phone": "0911813699",
+    "phone_text": "0911813700",
+    "hotline1": "",
+    "hotline2": "",
+    "worktime": "Mon - Fri: 8:00 - 17:00",
+    "email": "project.vn",
+    "email2": "lochuynh@mopxopminhphat.com",
+
+    "social.facebook_link": "https://www.facebook.com/",
+    "social.twitter_link": "",
+    "social.linkedin_link": "",
+    "social.youtube_link": "",
+    "social.messenger_link": "https://www.messenger.com/",
+    "social.instagram_link": "",
+    "social.tiktok_link": "",
+    "social.zalo_link": "",
+
+    "link_map": "https://maps.app.goo.gl/9xoxnr5qRyK2tfdp8",
+    "office_address": "Thửa đất 140,470,403. Tờ bản đồ 39. ấp Bến Tượng . Xã Lai Hưng. Huyện Bàu Bàng. Tỉnh Bình Dương. Việt Nam",
+    "vpdd": "983 Kha Vạn Cân, Khu Phố 1, P.Linh Tây, TP.Thủ Đức, TP.Hồ Chí Minh",
+    "map": "<iframe class=\"child-block\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14897.310061480126!2d105.8577579!3d21.0195774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abede427bdb5%3A0x423b85d0a526cf0c!2zQ8O0bmcgdHkgQ1AgU2FvIHRow6FuZyBUw6FtIFZp4buHdCBOYW0gKEFHUyk!5e0!3m2!1svi!2s!4v1717058553409!5m2!1svi!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+
+    "paging.product.page_size": 6,
+    "paging.post.page_size": 6,
+
+    "routes.page": "/*page/",
+    "routes.category": "/:category/",
+    "routes.product": "/san-pham/:product/",
+    "routes.post": "/blog/:post/",
+
+    "sitemap.add.posts": ["/tin-tuc/"],
+    "website.resources": [
+      {
+        "name": "Video",
+        "has_slug": false,
+        "attributes": [
+          {
+            "key": "id",
+            "name": "ID Video"
+          },
+          {
+            "key": "content",
+            "name": "Tên"
+          }
+        ]
+      },
+      {
+        "name": "Faq",
+        "has_slug": false,
+        "attributes": [
+          {
+            "key": "answer",
+            "name": "answer"
+          }
+        ]
+      },
+      {
+        "name": "Project",
+        "has_slug": true,
+        "has_category": true,
+        "attributes": [
+          {
+            "key": "diachi",
+            "name": "Địa chỉ"
+          },
+          {
+            "key": "loai_cong_trinh",
+            "name": "Loại công trình"
+          },
+          {
+            "key": "time",
+            "name": "Thời gian hoàn thành"
+          },
+          {
+            "key": "chu_dau_tu",
+            "name": "Chủ đầu tư"
+          }
+        ]
+      },
+      {
+        "name": "Policy",
+        "has_slug": true,
+        "route": "/chinh-sach/:slug",
+        "attributes": []
+      }
+    ],
+    "products.properties": {
+      "sections": [
+        {
+          "name": "Custom description",
+          "configs": [
+            {
+              "key": "custom_description",
+              "name": "Custom description",
+              "data_type": "richtext"
+            }
+          ]
+        },
+        {
+          "name": "Thông số kỹ thuật",
+          "configs": [
+            {
+              "key": "vat-lieu",
+              "name": "Vật liệu"
+            },
+            {
+              "key": "ty-trong",
+              "name": "Tỷ trọng"
+            },
+
+            {
+              "key": "kich-thuoc",
+              "name": "Kích thước"
+            },
+            {
+              "key": "do-day",
+              "name": "Độ dày"
+            },
+            {
+              "key": "chong-chay",
+              "name": "Chống cháy"
+            },
+            {
+              "key": "cach-nhiet",
+              "name": "Cách nhiệt"
+            },
+            {
+              "key": "cach-am",
+              "name": "Cách âm"
+            },
+            {
+              "key": "tham-my",
+              "name": "Thẩm mỹ"
+            },
+            {
+              "key": "tiet-kiem",
+              "name": "Tiết kiệm"
+            },
+            {
+              "key": "co-dinh",
+              "name": "Cố định"
+            }
+          ]
+        }
+      ]
+    },
+    "sitemap.definition": {
+      "groups": [
+        {
+          "sitemaps_path": "sitemaps/",
+          "filename": "sitemap_categories",
+          "paths": [],
+          "resources": [
+            {
+              "resource": "Category",
+              "scopes": ["published"],
+              "where": { "depth": "1", "kind": ["product", "post", "service"] },
+              "orders": { "updated_at": "desc" },
+              "changefreq": "daily",
+              "priority": "0.5"
+            }
+          ]
+        },
+        {
+          "sitemaps_path": "sitemaps/",
+          "filename": "sitemap_sub_categories",
+          "paths": [],
+          "resources": [
+            {
+              "resource": "Category",
+              "scopes": ["published"],
+              "where": { "depth": "2", "kind": ["product", "post", "service"] },
+              "orders": { "updated_at": "desc" },
+              "changefreq": "daily",
+              "priority": "0.5"
+            }
+          ]
+        },
+        {
+          "sitemaps_path": "sitemaps/",
+          "filename": "sitemap_posts",
+          "paths": [
+            {
+              "path": "/tin-tuc/",
+              "changefreq": "weekly",
+              "priority": "0.5"
+            }
+          ],
+          "resources": [
+            {
+              "resource": "Post",
+              "scopes": ["published", "seo_index"],
+              "orders": { "updated_at": "desc" },
+              "changefreq": "daily",
+              "priority": "0.5"
+            }
+          ]
+        },
+        {
+          "sitemaps_path": "sitemaps/",
+          "filename": "sitemap_products",
+          "paths": [
+            {
+              "path": "/",
+              "changefreq": "weekly",
+              "priority": "0.5"
+            }
+          ],
+          "resources": [
+            {
+              "resource": "Product",
+              "scopes": ["published", "seo_index"],
+              "orders": { "updated_at": "desc" },
+              "changefreq": "daily",
+              "priority": "0.5"
+            }
+          ]
+        }
+      ]
+    },
+    "website.settings": {
+      "groups": [
+        {
+          "name": "General",
+          "configs": [
+            {
+              "key": "website.name",
+              "name": "Name",
+              "data_type": "string"
+            },
+            {
+              "key": "logo_url",
+              "name": "Logo",
+              "data_type": "image"
+            },
+            {
+              "key": "logo_url_footer",
+              "name": "Logo footer",
+              "data_type": "image"
+            },
+            {
+              "key": "favicon_url",
+              "name": "Favicon",
+              "data_type": "image"
+            },
+            {
+              "key": "email",
+              "name": "Email info"
+            },
+            {
+              "key": "phone",
+              "name": "Hotline"
+            },
+            {
+              "key": "phone_text",
+              "name": "Hotline Text"
+            },
+            {
+              "key": "office_address",
+              "name": "Office Address"
+            },
+            {
+              "key": "lich_1",
+              "name": "Lịch 1"
+            },
+            {
+              "key": "lich_2",
+              "name": "Lịch 2"
+            },
+            {
+              "key": "img_facebook",
+              "name": "Img facebook",
+              "data_type": "image"
+            },
+            {
+              "key": "office_address2",
+              "name": "Office Address 2"
+            },
+            {
+              "key": "vpdd_address_2",
+              "name": "Vpdd address 2"
+            },
+            {
+              "key": "worktime",
+              "name": "Vpdd address"
+            },
+            {
+              "key": "social.zalo_link",
+              "name": "Link zalo"
+            },
+            {
+              "key": "social.messenger_link",
+              "name": "Link messenger"
+            },
+            {
+              "key": "social.facebook_link",
+              "name": "Link Facebook"
+            },
+            {
+              "key": "social.youtube_link",
+              "name": "Link Youtube"
+            },
+            {
+              "key": "map",
+              "name": "Iframe map",
+              "data_type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

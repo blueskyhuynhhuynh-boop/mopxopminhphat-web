@@ -1,0 +1,67 @@
+/* Block 404 */
+.block404{
+  padding: 50px 0;
+  text-align: center;
+  
+}
+.block404 h2{
+  margin: 20px 0px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 28px;
+}
+.block404 h1{
+  margin: 20px 0px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 28px;
+}
+.block404 .btnBlock div a{
+  font-size: 14px;
+  color: #fff;
+}
+.block404 .btnBlock{
+  margin:0 30px 10px 30px ;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.block404 .btnBlock div {
+  background-color: #cf0034;
+  border-radius: 10px;
+  margin:10px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+}
+.block404 .btnBlock div:hover {
+  background-color:#190a44 ;
+  transition:all 0.3s;
+  cursor: pointer;
+}
+.block404 h3{
+  font-size: 14px;
+}
+.block404 p{
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width:576px){
+  .block404 .btnBlock div {
+      background-color: #cf0034;
+      border-radius: 10px;
+      margin:10px 5px;
+      width:auto;
+      text-align: center;
+  }
+  .block404 h2{
+      font-size: 24px;
+  }
+  .block404 h3{
+      font-size: 16px;
+  }
+}

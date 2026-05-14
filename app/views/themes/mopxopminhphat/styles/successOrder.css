@@ -1,0 +1,216 @@
+.wrapGeneralBig {
+  padding: 0;
+  max-width: 2000px;
+  margin: auto;
+  background-color: #ffffff;
+ }
+ .orderInfoBlock2 {
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+ }
+ .orderInfoBlock2 .title {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px 5px 0 0;
+ }
+ .orderInfoBlock2 .table1 {
+  width: 100%;
+  margin-bottom: 20px;
+ }
+ .orderInfoBlock2 .table1 .lineLast1 td {
+  padding-top: 20px;
+ }
+ .table1 .lineTotal .colRight {
+  color: #D9001B;
+  }
+  .orderInfoBlock2 .table1 .lineTotal td {
+    font-size: 18px;
+    padding-top: 15px;
+  }
+  .orderInfoBlock2 .table1 .lineTotal {
+    border-top: 1px solid #cdcdcd;
+  }
+ .orderInfoBlock2 .table1 .line1 {
+  border-bottom: 1px solid #cdcdcd;
+ }
+ .orderInfoBlock2 .table1 .line1 .colTable {
+  font-weight: 700;
+  }
+  .orderInfoBlock2 .table1 .col1 {
+    padding-left: 15px;
+    width: 50%;
+    text-align: left !important;
+  }
+  .orderInfoBlock2 .table1 .colLeft {
+    width: 50%;
+    padding-left: 15px;
+  }
+  .orderInfoBlock2 .table1 .colRight {
+    text-align: center;
+  }
+  .orderInfoBlock2 .table1 .lineLast td {
+    /* font-size: 16px; */
+    font-weight: 700;
+    /* padding-top: 7px; */
+    padding-bottom: 7px;
+  }
+  .orderInfoBlock2 .table1 .colTable {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+    text-align: center;
+  }
+ #successOrderAMARE .secMainContent {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  }
+  .orderInfoBlock1 .rowFix {
+    margin: 0;
+  }
+  .orderInfoBlock1 .colPart {
+    width: calc((100%-7.5px)/5);
+    border-right: 1.5px solid #aaaaaa;
+    text-align: center;
+    padding: 10px 5px;
+  }
+  .customerInfoBlock {
+    border: 1px solid #f2f2f2;
+    border-radius: 5px;
+  }
+  .customerInfoBlock .title {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px 5px 0 0;
+  }
+  .orderInfoBlock1 .colPart.lastCol {
+    border-right: none;
+  }
+  .customerInfoBlock .table1 {
+    width: 100%;
+  }
+  .customerInfoBlock .table1 .col1 {
+    width: 30%;
+    font-size: 14px;
+  }
+  .customerInfoBlock .table1 td {
+      font-size: 16px;
+      padding-left: 15px;
+      padding-bottom: 10px;
+  }
+  /*secMainContent*/
+    #successOrderAMARE .secMainContent {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    #successOrderAMARE .secMainContent .textPart1 {
+      border: 1px solid #190a44;
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .orderInfoBlock1 .colPart:hover {
+      background-color: #190a44;
+      transition: 0.3s;
+    }
+    #successOrderAMARE .secMainContent .textPart1:hover {
+      background-color: #190a44;
+      transition: 0.2s;
+    }
+
+    #successOrderAMARE .secMainContent .textPart1:hover .text1 {
+      color: #ffffff;
+    }
+
+    #successOrderAMARE .secMainContent .textPart1:hover .text2 {
+      color: #ffffff;
+    }
+    .orderInfoBlock1 .colPart:hover p {
+      color: white !important;
+    }
+    #successOrderAMARE .secMainContent .textPart1 .text1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    #successOrderAMARE .secMainContent .textPart1 .text2 {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    #successOrderAMARE .secMainContent .orderInfoBlock1 {
+      margin-bottom: 25px;
+    }
+
+    #successOrderAMARE .secMainContent .customerInfoBlock {
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    #successOrderAMARE .secMainContent .btnBack {
+      margin-top: 15px;
+    }
+
+    #successOrderAMARE .secMainContent .btnBack a {
+      padding: 10px;
+      padding-left: 40px;
+      color: #000000;
+      display: block;
+      position: relative;
+      font-size: 16px;
+    }
+
+    #successOrderAMARE .secMainContent .btnBack a:hover {
+      color: #190a44;
+      text-decoration: underline;
+    }
+
+    #successOrderAMARE .secMainContent .btnBack a:before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background-image: url('/tassets/images/backItem.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+
+    @media only screen and (max-width: 575px) {
+      #successOrderAMARE .secMainContent {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      #successOrderAMARE .secMainContent .textPart1 {
+        padding: 20px 5px;
+      }
+
+      #successOrderAMARE .secMainContent .textPart1 .text1 {
+        font-size: 16px;
+      }
+    }
+    @media only screen and (max-width: 991px) {
+      .orderInfoBlock1 .colPart {
+        width: calc((100%-1.5px)/2);
+        margin-bottom: 20px;
+      }
+
+      .orderInfoBlock1 .colPart:nth-child(2n) {
+        border-right: none;
+      }
+
+      .orderInfoBlock1 .lastCol {
+        width: 100%;
+        border-top: 1.5px solid #aaaaaa;
+        border-right: none;
+        margin-bottom: 0;
+      }
+    }

@@ -1,0 +1,142 @@
+= render_view "components/_popup_registration"
+%main#Product.container-fluid
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-Product-image{:alt => "Banner", :src => "/tassets/images/mopxop/z6822005558517_cdc8fe935e9a07b358512f8a5eb57b0f.jpg"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.name= product.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          - if (product_primary1 = product.primary_category.parent).present?
+            %a.text-white{:href => category_path(product_primary1)}= product_primary1.name.capitalize
+          - if (product_primary2 = product.primary_category).present?
+            %a.text-white{:href => category_path(product_primary2)}= product_primary2.name.capitalize
+          %a.text-white{:href => "#"}= product.name.capitalize
+  %section.Product
+    .container.containerFix1300
+      .page-container
+        .page-main
+          .left-wrap
+            .product-detail.product
+              .row 
+                .col-md-7 
+                  .slide-product.specialBlock_21
+                    .left
+                      .owl-carousel.owl-theme.smallImgBlock
+                        .item.item-frame
+                          .img-wrap{:namemedia => "image_url"}
+                            .dad-block-100
+                              %img.child-block{:alt => product.name, :src => product.image_url}
+                        - if (featured_images = product.get_featured_images).any?
+                          - featured_images.each do |image|
+                            .item.item-frame
+                              .img-wrap{:namemedia => "image_url"}
+                                .dad-block-100 
+                                  %img.child-block{:alt => product.name, :src => image['link']}   
+                    .right
+                      .owl-carousel.owl-theme.bigImgBlock
+                        .item.item-frame
+                          .img-wrap{:namemedia => "image_url"}
+                            .dad-block-100
+                              %img.child-block{:alt => product.name, :src => product.image_url}
+                        - if (featured_images = product.get_featured_images).any?
+                          - featured_images.each do |image|
+                            .item.item-frame
+                              .img-wrap{:namemedia => "image_url"}
+                                .dad-block-100 
+                                  %img.child-block{:alt => product.name, :src => image['link']}
+                .col-md-5
+                  .information-product 
+                    %h1.home-title.fw-600= product.name
+                    .content-block 
+                      - if product.description.present?
+                        %p= product.description
+                      .propertie-bl
+                        - if product.prop("vat-lieu").present?
+                          %p
+                            %strong Vật liệu:
+                            %span= product.prop("vat-lieu")
+                        - if product.prop("ty-trong").present?
+                          %p
+                            %strong Tỷ trọng:
+                            %span= product.prop("ty-trong")
+                        - if product.prop("kich-thuoc").present?
+                          %p
+                            %strong Kích thước:
+                            %span= product.prop("kich-thuoc")
+                        - if product.prop("do-day").present?
+                          %p
+                            %strong Độ dày:
+                            %span= product.prop("do-day")
+                      .btnPart.mt-4 
+                        .desktop-only
+                          %a.home-more.contactCallPopUp{:contactText => "Chat zalo", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => "tel:#{web_config('social.zalo_link')}", :idGoogleGet => "btn_zalo_id", :data => "zalo", :title => "Liên hệ"} LIÊN HỆ NGAY
+                        .mobile-only
+                          %a.home-more.contactCallPopUp{:contactText => "Gọi điện", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => "tel:#{web_config('phone')}", :idGoogleGet => "btn_phone_id", :data => "phone", :title => "Liên hệ"} LIÊN HỆ NGAY
+            .prodetails-content
+              %section.PageLink
+                %ul 
+                  %li 
+                    %a.link.scroll-to{:href => "#Introduce1"} Thông tin sản phẩm
+                  %li 
+                    %a.link.scroll-to{:href => "#Introduce2"} Lý do chọn sản phẩm
+                  %li 
+                    %a.link.scroll-to{:href => "#Introduce3"} Sản phẩm khác
+              .kche-wrap-width.py-md-5.py-4#Introduce1
+                - if product.content.body.present?
+                  %h3 Thông tin sản phẩm
+                  = render_view "components/table_of_content", locals: { content: product.content }
+                  .data_contents
+                    = product.content.body.html_safe
+              .reason#Introduce2
+                %h3 Lý do chọn sản phẩm
+                .row 
+                  .col-md-4.col-12
+                    .item 
+                      .img-block 
+                        %p.text-center
+                          %img{:src => "/tassets/images/mopxop/prodcut-img1.png",:alt => "img"}
+                      .content-block
+                        %p Sản phẩm đạt chuẩn chất lượng cao, được tin dùng trong xây dựng, công nghiệp và nông nghiệp bởi hàng trăm khách hàng trên toàn quốc.
+                  .col-md-4.col-12
+                    .item 
+                      .img-block 
+                        %p.text-center
+                          %img{:src => "/tassets/images/mopxop/prodcut-img2.png",:alt => "img"}
+                      .content-block
+                        %p Cung cấp đa dạng mốp xốp cách nhiệt, màng xốp PE Foam, xốp tráng bạc chống nóng... với nhiều chủng loại, kích thước đáp ứng mọi nhu cầu sử dụng.
+                  .col-md-4.col-12
+                    .item 
+                      .img-block 
+                        %p.text-center
+                          %img{:src => "/tassets/images/mopxop/prodcut-img3.png",:alt => "img"}
+                      .content-block
+                        %p Hệ thống nhà máy hiện đại, thiết bị tiên tiến đảm bảo tiến độ, chất lượng và số lượng cho mọi đơn hàng.
+              
+              .more-product.secBlock1.py-md-5.py-4.overflow-hidden#Introduce3
+                %h3 Sản phẩm khác
+                .owl-carousel.owl-theme.slideVideoCS{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+                  - primary_category = product.primary_category
+                  - products = primary_category.products.limit(5)
+                  - products.each do |product|
+                    .item.my-1
+                      %a.d-block.img-block{ href: product_path(product), title: product.name }
+                        .dad-block-100.figure2
+                          %img.child-block-scale.scale{ alt: product.name, src: product.image_url,:loading => "lazy" }
+                      .content-block 
+                        %a.d-block{ href: product_path(product), title: product.name }
+                          .text-1.fs18.fw-600= product.name.capitalize
+                        .tag-infor
+                          - if product.prop( 'cach-nhiet').present?
+                            .tag-bl Cách nhiệt
+                          - if product.prop('chong-chay').present?
+                            .tag-bl Chống cháy
+                          - if product.prop( 'cach-am').present?
+                            .tag-bl Cách âm
+                          - if product.prop('tham-my').present?
+                            .tag-bl Thẩm mỹ
+                        - if product.description.present?
+                          %p.fs14.des= product.description
+          

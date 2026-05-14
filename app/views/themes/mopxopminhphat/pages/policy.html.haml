@@ -1,0 +1,21 @@
+= render_view "components/menu"
+%main.container-fluid#Policy
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-Policy-image{:alt => "Banner", :src => "/tassets/images/mopxop/2d45148f573cde62872d.jpg"}/
+  .banner-content
+    .container
+      .banner-breadcrumbs
+        %a.link-home{:href => root_path, :title => "Home"}
+          Trang chủ
+        %a{:href => policy_path(policy)}
+        = policy.name
+  %section.contentPolicy.py-md-5.py-4
+    .container.containerFix1300
+      %h1.fs24.mb-4.text-center= policy.name.upcase
+      - if policy.content.body.present?
+        .data_contents
+          = policy.content.body.html_safe
+  
+= render_view "components/footer"
+

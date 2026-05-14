@@ -1,0 +1,70 @@
+.Faq {
+  .home-title {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    font-weight: 500;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65px;
+      height: 3px;
+      background-color: #031f4b;
+      bottom: 0;
+    }
+  }
+  .sidebar-cate {
+    list-style: none;
+    padding: 0px;
+    .menu-item {
+      border-radius: 3px;
+      position: relative;
+      background: #f3f3f3;
+      .item1 {
+        color: #333;
+        padding: 15px;
+        width: 100%;
+        transition: all 0.1s linear;
+        font-size: 18px;
+        line-height: 27px;
+        font-weight: 700;
+        width: 95%;
+      }
+      .iconfont {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-weight: 600;
+        transition: all 0.1s linear;
+        i {
+          margin-bottom: 0;
+          font-size: 16px;
+        }
+      }
+      .sub-menu {
+        list-style: none;
+        padding: 0;
+        background: #f3f3f3;
+        height: 0px;
+        transition: height 0.5s ease;
+        overflow: hidden;
+        .item2 {
+          color: #333;
+          padding-left: 30px;
+          width: 100%;
+          line-height: 40px;
+          font-weight: 600;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

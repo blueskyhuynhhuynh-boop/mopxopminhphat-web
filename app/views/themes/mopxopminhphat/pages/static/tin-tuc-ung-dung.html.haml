@@ -1,0 +1,23 @@
+= render_view "components/menu"
+%main
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners{:alt => "Banner", :src => page.image_url, :decoding => "async",:loading => "lazy"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          = page.name
+  .WrapDuAn
+    .wrap 
+      - get_projects.each do |project|
+        %a.d-block.item{:href => project_path(project),:title => project.name}
+          .img-block
+            .dad-block-64.overflow-hidden
+              %img.child-block-scale{:src => project.image_url,:alt => project.name}
+              %p.name= project.name.upcase
+              
+
+= render_view "components/footer"

@@ -1,0 +1,121 @@
+%main#detailProject.container-fluid.fixMenuSpecial
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners{:alt => "Banner", :src => project.image_url, :decoding => "async",:loading => "lazy"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          -# %p.text-white.name= project.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          %a.text-white= project.name
+  %section.infor_project.py-md-5.py-4
+    .container.containerFix1300
+      .vhtitleab
+        %h2= project.name
+      .row 
+        - if project.prop( 'chu_dau_tu').present?
+          .col-md-6.col-12 
+            .bl.p-2.bg-light
+              %p
+                %strong Chủ đầu tư
+              %p= project.prop( 'chu_dau_tu')
+        - if project.prop('loai_cong_trinh').present?
+          .col-md-6.col-12 
+            .bl.p-2.bg-light
+              %p
+                %strong Loại công trình
+              %p= project.prop( 'loai_cong_trinh')
+        - if project.prop('time').present?
+          .col-md-6.col-12 
+            .bl.p-2.bg-light
+              %p
+                %strong Thời gian hoàn thành
+              %p= project.prop( 'time')
+        - if project.prop('diachi').present?
+          .col-md-6.col-12 
+            .bl.p-2.bg-light
+              %p
+                %strong Địa chỉ
+              %p= project.prop( 'diachi')
+      
+  
+  - if project.content.body.present?
+    .secMainContent.data_contents.getTableOfContentBlock
+      .container.containerFix1300
+        .section_2
+          = render_view "components/table_of_content", locals: { content: project.content }
+        .specialBlock_3
+          .data_contents
+            = project.content.body.html_safe
+  .project-project-details.secBlock1.py-md-5.py-4
+    .container.containerFix1300
+      .title-block-int
+        .vhtitleab
+          %h2 Các dự án khác
+      
+      - projects = get_projects.limit(3)
+      - if projects.present?
+        .owl-carousel.owl-theme.slideDuan
+          - projects.each do |project|
+            .item
+              .row
+                .col-6.desktop-only{:style => "background: #f4f4f4"}
+                  .content-block
+                    .tag-infor
+                      - if project.prop( 'chu_dau_tu').present?
+                        .bl.py-3.px-4
+                          %p
+                            %strong Chủ đầu tư
+                          %p= project.prop( 'chu_dau_tu')
+                      - if project.prop('loai_cong_trinh').present?
+                        .bl.py-3.px-4
+                          %p
+                            %strong Loại công trình
+                          %p= project.prop( 'loai_cong_trinh')
+                      - if project.prop('time').present?
+                        .bl.py-3.px-4
+                          %p
+                            %strong Thời gian hoàn thành
+                          %p= project.prop( 'time')
+                      - if project.prop('diachi').present?
+                        .bl.py-3.px-4
+                          %p
+                            %strong Địa chỉ
+                          %p= project.prop( 'diachi')
+                .col-md-6.col-12
+                  %a.d-block.img-block.mb-0{ href: project_path(project), title: project.name }
+                    .dad-block-64.figure2
+                      %img.child-block-scale.scale{ alt: project.name, src: project.image_url,:loading => "lazy" }
+  .project-project-details.secBlock1.py-md-5.py-4
+    .container.containerFix1300
+      .vhtitleab
+        %h2 Tìm hiểu sản phẩm của mốp xốp minh phát 
+      .row 
+        .col-md-4.col-12 
+          .item.mb-1
+            %a.d-block.img-block{ href: "/san-pham/", title: "" }
+              .dad-block-64.figure2
+                %img.child-block-scale.scale{ alt: "", src: "/tassets/images/mopxop/42584d8b07228e7cd733.jpg",:loading => "lazy" }
+            .content-block 
+              %h3.text-1.fs18.fw-600 Dẫn đầu chất lượng mốp xốp
+              %p.fs14.des Mốp xốp Minh Phát là giải pháp cách nhiệt – cách âm hiệu quả, được sản xuất theo quy trình nghiêm ngặt, phù hợp với đa dạng công trình từ dân dụng đến công nghiệp.
+            %a.home-more.mt-4.fw-600{:href => "/san-pham/",:title => ""} Khám phá Mốp Xốp Minh Phát
+        .col-md-4.col-12 
+          .item.mb-1
+            %a.d-block.img-block{ href: "/gioi-thieu/", title: "" }
+              .dad-block-64.figure2
+                %img.child-block-scale.scale{ alt: "", src: "/tassets/images/mopxop/a71669c7236eaa30f37f.jpg",:loading => "lazy" }
+            .content-block 
+              %h3.text-1.fs18.fw-600 Thương hiệu uy tín, chất lượng
+              %p.fs14.des Chúng tôi không ngừng cải tiến, đầu tư công nghệ và nâng cao chất lượng sản phẩm, cam kết mang đến vật liệu đạt tiêu chuẩn cao, được khách hàng và đối tác tin tưởng trên toàn quốc.
+            %a.home-more.mt-4.fw-600{:href => "/gioi-thieu/",:title => ""} Giới thiệu về Mốp Xốp Minh Phát
+        .col-md-4.col-12 
+          .item.mb-1
+            %a.d-block.img-block{ href: "/du-an/", title: "" }
+              .dad-block-64.figure2
+                %img.child-block-scale.scale{ alt: "", src: "/tassets/images/mopxop/6788e66dacc4259a7cd5.jpg",:loading => "lazy" }
+            .content-block 
+              %h3.text-1.fs18.fw-600 Hàng ngàn khách hàng tin dùng
+              %p.fs14.des Mốp xốp Minh Phát được tin tưởng bởi hàng trăm khách hàng và đối tác trên toàn quốc, ứng dụng rộng rãi trong xây dựng, công nghiệp, và nông nghiệp.
+            %a.home-more.mt-4.fw-600{:href => "/du-an/",:title => ""} Khám phá những dự án nổi bật

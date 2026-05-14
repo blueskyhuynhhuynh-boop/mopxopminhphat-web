@@ -1,0 +1,53 @@
+%main.pro-main.container-fluid#catePost
+  %section.Search
+    .container.containerFix1300
+      .sidebar-search
+        %form{action: '/search', method: 'GET'}
+          %input{:type => "text",:placeholder => "Nhập từ khóa tìm kiếm",name: 'key', value: params[:key]}/
+          %button.search-btn{:title => "Search"}
+            %i.fa-solid.fa-magnifying-glass
+  %section.wrap-Post.overflow-hidden
+    .container.containerFix1300
+      .wrap 
+        .list-post{"data-aos": "fade-right","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+          .row.newList
+            - posts.each do |post|
+              .col-md-4.col-12
+                .item
+                  .newlist-img  
+                    %a{:href => post_path(post), :title => post.name}
+                      .dad-block-100.dad-hover
+                        %img.child-block{:alt => post.name, :src => post.image_url, :loading => "lazy", :decoding => "async"}/
+                  .newlist-info
+                    .date 
+                      .calendar-icon
+                        %i.fa-solid.fa-calendar-days
+                      %p.text3= post.created_at.localtime.strftime(' %d Tháng %m, %Y')
+                    %h3
+                      %a.text1{:href => post_path(post), :title => post.name}= post.name
+          = render_view "/components/pagination"
+  %h1.d-none= category.name
+  %section.imageCate.py-md-5.py-4
+    .container.containerFix1300
+      .owl-carousel.owl-theme.slideDuan
+        .item 
+          .dad
+            %img.child-block.wk-editable-image#imageCate-img{:alt => "image post", :src => "/tassets/images/mopxop/6ed80aa8-2c73-414c-b3bf-af9d1d727582.jpeg",:loading => "lazy"}
+          .wrap-sub-text
+            .text.wk-editable-text#imageCate-text Nguyên liệu ngoại nhập, an toàn cho sức khỏe.
+        .item 
+          .dad
+            %img.child-block.wk-editable-image#imageCate-img1{:alt => "image post", :src => "/tassets/images/mopxop/39ad2a2b-29ad-4326-9457-59ee013c3afe.jpeg",:loading => "lazy"}
+          .wrap-sub-text 
+            .text.wk-editable-text#imageCate-text1 Sản phẩm đa dạng, đáp ứng mọi nhu cầu.
+        .item 
+          .dad
+            %img.child-block.wk-editable-image#imageCate-img2{:alt => "image post", :src => "/tassets/images/mopxop/baef840d-ebae-428e-b54f-3f84cd72862a.jpeg",:loading => "lazy"}
+          .wrap-sub-text 
+            .text.wk-editable-text#imageCate-text2 Công nghệ hiện đại, chất lượng vượt trội.
+  - if category.content.body.present?
+    %section.data-content.py-md-5.py-4
+      .container
+        = render_view "components/table_of_content", locals: { content: category.content }
+        .data_contents
+          = category.content.body.html_safe

@@ -1,0 +1,135 @@
+.Contact {
+  .right {
+    .text1 {
+      color: #333399;
+      font-size: 35px;
+      line-height: 50px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .text-contact {
+      h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333333;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #333333;
+      }
+    }
+    .view-map {
+      margin: 20px 0 0px 0;
+      text-align: center;
+      .scroll-to {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 20px;
+        border: 1px solid var(--mau_chu_dao2);
+        max-width: 180px;
+        margin: 0 auto;
+        text-align: center;
+        i {
+          margin-right: 10px;
+          color: var(--mau_chu_dao2);
+        }
+        &:hover {
+          background: var(--mau_chu_dao2);
+          color: #fff;
+          i {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .right {
+      .text1 {
+        font-size: 25px;
+        line-height: 37px;
+      }
+      .text-contact {
+        h4 {
+          font-size: 15px;
+          line-height: 25px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+.FormContact {
+  background-image: url("/tassets/images/mopxop/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 50px 15px 60px;
+    .wrap-form {
+      max-width: 850px;
+      margin: 0 auto;
+      .tit {
+        max-width: 560px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .menu-list {
+        .form-group {
+          input {
+            width: 100%;
+            padding: 5px 10px;
+            border: 1px solid #dedede;
+            height: 40px;
+            background: transparent;
+            outline: none;
+          }
+          textarea {
+            width: 100%;
+            padding: 5px 10px;
+            border: 1px solid #dedede;
+            background: transparent;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      .menu-list {
+        margin: 0 15px;
+      }
+      .wrap-form {
+        .tit {
+          font-size: 14px;
+          line-height: 24px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+.link-map {
+  @media (max-width: 768px) {
+    .dad-block-30 {
+      padding-bottom: 100%;
+    }
+  }
+}

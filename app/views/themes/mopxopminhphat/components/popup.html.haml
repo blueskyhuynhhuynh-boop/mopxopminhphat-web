@@ -1,0 +1,51 @@
+#popup_registration_1.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content
+      .titlePart
+        %p.title ĐĂNG KÝ NHẬN TƯ VẤN
+        .underline
+        %a.close.closeItem{"data-dismiss" => "modal"}
+          x
+      %form.blockRegistration_1.dang-ky.contact-form{target: page_path('thankyou')}
+        = hidden_field_tag :authenticity_token, form_authenticity_token
+        = hidden_field_tag :form, 'dang-ky'
+        .formRegistration
+          .form-group
+            %input.form-control#name2{:placeholder => "Họ và tên *", :type => "text",name:"name"}/
+            .val_name2
+          .form-group
+            %input.form-control#phone2{:placeholder => "Điện thoại", :type => "text",name:"phone"}/
+            .val_phone2
+          .form-group
+            %input.form-control#email2{:placeholder => "Email *", :type => "text",name:"email"}/
+          .form-group
+            %input.form-control#channel2{:placeholder => "Nhập nội dung", :rows => "4",name:"nameproduct"}
+          .form-group
+            %textarea.form-control#message2{:placeholder => "Nhập nội dung", :rows => "4",name:"note"}
+        .btnSubmit
+          %button.btnType_1.btnSubmit2 Đăng ký tư vấn
+#popup_ask_contact_Id.modal.fade.popupAskContact{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content
+      .modal-header
+        %p.modal-title KẾT NỐI
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        Bạn có muốn kết nối với tư vấn viên của chúng tôi?
+      .modal-footer
+        %a.btnType_2{"data-dismiss" => "modal"} Hủy
+        %a.btnType_2.btnContact{:href => "", :rel => "nofollow", :target => "_blank"}
+#popupWhenClickContactShowTwoElement.modal.fade.popupAskContactShowTwoElement{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content
+      .modal-header
+        %p.modal-title KẾT NỐI
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        Bạn có muốn kết nối với Siêu Thị Cá Koi?
+      .modal-footer
+        %a.btnType_2.btnContact#btn_phone_id_hcm.chooseContact.choosePhone{:style=>"background:blue",:href => "tel:#{web_config('phone')}", :rel => "nofollow", :target => "_blank",}Phone: #{web_config('phone')}
+        %a.btnType_2.btnContact#btn_phone_id_hn.chooseContact.choosePhone{:style=>"background:blue",:href => "tel:093 2262288", :rel => "nofollow", :target => "_blank"} Phone: 093 226 22 88
+        %a.btnType_2.btnFinish{"data-dismiss" => "modal"} Hủy        

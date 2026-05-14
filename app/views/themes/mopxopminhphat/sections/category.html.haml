@@ -1,0 +1,58 @@
+%h1.d-none= category.name
+%main.pro-main.container-fluid#cateProduct
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners{:alt => "Banner", :src => category.image_url, :decoding => "async",:loading => "lazy"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= category.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          - if category.parent
+            %a.link-home{:href => category_path(category.parent)}= category.parent.name
+          = category.name
+  %section.Search
+    .container.containerFix1300
+      .sidebar-search
+        %form{action: '/search', method: 'GET'}
+          %input{:type => "text",:placeholder => "Nhập từ khóa tìm kiếm",name: 'key', value: params[:key]}/
+          %button.search-btn{:title => "Search"}
+            %i.fa-solid.fa-magnifying-glass
+  %section.secBlock1.secCate.py-md-5.py-4.overflow-hidden
+    .container.containerFix1300
+      .home-title.text-center{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true"}= category.name.upcase
+      - if category.children.published.any?
+        .list-name.d-flex.mb-md-4.mb-3.justify-content-center{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "300"}
+          - category.children.published.each do | child |
+            %a.fw-700{:href => category_path(child),:title => child.name}= child.name.upcase
+      .row{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+        - products.each do |product|
+          .col-md-4.col-6
+            .item
+              %a.d-block.img-block{ href: product_path(product), title: product.name }
+                .dad-block-100.figure2
+                  %img.child-block-scale.scale{ alt: product.name, src: product.image_url,:loading => "lazy" }
+              .content-block 
+                %a.d-block{ href: product_path(product), title: product.name }
+                  %h3.text-1.fs18.fw-600= product.name.capitalize
+                .tag-infor
+                  - if product.prop( 'cach-nhiet').present?
+                    .tag-bl Cách nhiệt
+                  - if product.prop('chong-chay').present?
+                    .tag-bl Chống cháy
+                  - if product.prop( 'cach-am').present?
+                    .tag-bl Cách âm
+                  - if product.prop('tham-my').present?
+                    .tag-bl Thẩm mỹ
+                - if product.description.present?
+                  %p.fs14.des= product.description
+      - unless paging[:total_pages] <= 1
+        .about-btt.w-full.d-flex.justify-content-center
+          %a.btn#btnreadmore.home-more.mt-4.fw-600{"data-category"=>"#{category.slug}", "data-total-page"=>paging[:total_pages], "data-current-page"=> paging[:page]} xem thêm
+  - if category.content.body.present?
+    %section.Data.py-md-5.py-4
+      .container.containerFix1300
+        = render_view "components/table_of_content", locals: { content: category.content }
+        .data_contents
+          = category.content.body.html_safe

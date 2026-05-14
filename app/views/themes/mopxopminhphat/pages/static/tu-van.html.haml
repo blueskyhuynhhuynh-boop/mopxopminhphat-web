@@ -1,0 +1,67 @@
+= render_view "components/menu"
+%main.PageFAQ#PageFAQ
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-inner-image{:alt => "Banner", :src => "/tassets/images/mopxop/banner_faq.jpg", :decoding => "async"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          = page.name
+  %section.Faq.py-md-5.py-4
+    .container.containerFix1300
+      .home-title.text-center{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true"} Tất cả câu hỏi
+      %ul.sidebar-cate{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true"}
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text 1. Không biết chất liệu mốp xốp nào phù hợp nhất với nhu cầu của tôi?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text1 Chúng tôi sẽ tư vấn kỹ thuật để chọn chất liệu mốp xốp phù hợp với mục đích sử dụng của bạn, đồng thời đảm bảo sự tiết kiệm chi phí.
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text2 2. Làm thế nào để đảm bảo rằng sản phẩm sẽ đáp ứng đúng yêu cầu kích thước và hình dạng mà tôi mong muốn?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text3 Chúng tôi sẽ thảo luận chi tiết với bạn về yêu cầu kỹ thuật và thậm chí cung cấp mẫu sản phẩm để bạn kiểm tra trước khi sản xuất lô hàng chính thức.
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text4 3. Mút xốp ở cửa hàng có chống va đập không ?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text5 Phần lớn mút xốp ở cửa hàng được thiết kế để chống va đập và bảo vệ sản phẩm. Tuy nhiên, mức độ chống va đập có thể thay đổi tùy thuộc vào loại mút và đặc tính kỹ thuật cụ thể. Kiểm tra thông số kỹ thuật và thảo luận với nhân viên cửa hàng để chọn loại mút phù hợp với nhu cầu bảo vệ của bạn.
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text6 4. Sau khi mua hàng, nếu tôi có vấn đề hoặc cần hỗ trợ, làm thế nào tôi có thể liên hệ được với bạn?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text7 Chúng tôi cung cấp dịch vụ hỗ trợ sau bán hàng, và bạn có thể liên hệ trực tiếp qua điện thoại hoặc email để được giải đáp mọi thắc mắc và hỗ trợ kịp thời.
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text8 5. Có mẹo nào giúp bảo quản thùng xốp để sử dụng lâu dài không ?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text9
+                Giữ Ở Nơi Mát Mẻ: Tránh nhiệt độ cao.
+                Bảo Quản Khô Ráo: Ngăn chặn sự ẩm ướt để tránh mốc.
+                Tránh Va Đập: Bảo quản ở nơi ít va chạm.
+                Kiểm Tra Thường Xuyên: Đảm bảo thùng không hỏng.
+                Đóng Gói Chặt Chẽ: Bảo vệ khỏi bụi bẩn và tác động môi trường.
+                Hạn Chế Tiếp Xúc Hóa Chất: Tránh chất hóa chất mạnh.
+        %li.menu-item.LiLevel1#parent
+          .item1.wk-editable-html#Faq-text10 6. Làm thế nào để giảm thiểu rủi ro hỏng hóc trong quá trình vận chuyển sản phẩm mốp xốp?
+          .iconfont
+            %i.fa-solid.fa-circle-plus
+          %ul.sub-menu#child
+            %li.LiLevel2
+              .item2.wk-editable-html#Faq-text11 Chúng tôi áp dụng phương pháp đóng gói an toàn và sáng tạo để đảm bảo sản phẩm không bị tổn thương trong quá trình vận chuyển.
+      .about-btt.w-full.d-flex.justify-content-center
+        %a.home-more.mt-4.fw-600{ :contactText => "Chat Facebook", "data-target" => "#popup_registration_1", "data-toggle" => "modal"} Gửi câu hỏi
+= render_view "components/footer"

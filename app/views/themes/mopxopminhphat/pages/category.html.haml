@@ -1,0 +1,12 @@
+= render_view "components/menu"
+- if category.product?
+  - if category.slug == "san-pham"
+    = render_view "sections/category_list"
+  - else 
+    = render_view "sections/category"
+- if category.service?
+  = render_view "sections/cate_service"
+- if category.post?
+  = render_view "sections/cate_post"
+= render_view "components/footer"
+

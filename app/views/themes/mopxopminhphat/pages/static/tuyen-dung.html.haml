@@ -1,0 +1,50 @@
+= render_view "components/menu"
+%main.container-fluid#TuyenDung
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-TuyenDung-image{:alt => "Banner", :src => "/tassets/images/banner-catgory.webp"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          %a{:href => page_path(page)}
+          = page.name
+  %section.PageLink
+    .container.containerFix1300
+      %ul 
+        %li 
+          %a.link.wk-editable-link#home-PageLink-link{:href => "/chinh-sach-phuc-loi/"} Chính sách phúc lợi
+        %li 
+          %a.link.wk-editable-link#home-PageLink-link1{:href => "/tuyen-dung/"} Thông tin tuyển dụng
+  %section.ImageTD.py-md-5.py-4
+    .container 
+      .vhtitleab
+        %h2.wk-editable-text#ImageTD-text3{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"} Thông tin tuyển dụng
+      .img-block{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+        %img.wk-editable-image#home-ImageTD-image{:src => "/tassets/images/banner-catgory.webp",:alt => "image ImageTD"}
+        .sub-text
+          .container.containerFix1300
+            .posi-text
+              %i.fa-solid.fa-quote-left
+              %p.wk-editable-text#home-ImageTD-text tự hào về một môi trường làm việc chuyên nghiệp, nhiều cơ hội thăng tiến, công việc ổn định với mức lương tương xứng.
+              %p.wk-editable-text#home-ImageTD-text1 Để phục vụ khách hàng như những vị “Khách quý đến nhà”, chúng tôi tìm kiếm những ứng viên năng động, nhiệt huyết với mong muốn học hỏi, làm việc và trưởng thành cùng PHƯƠNG NAM PANEL. Chúng tôi mang đến cho các bạn cơ hội làm việc trong môi trường chuyên nghiệp, chế độ lương thưởng hấp dẫn và chính sách thăng tiến trong nghề nghiệp trên nguyên tắc: “Chính trực - Trách nhiệm - Sáng tạo - Hợp tác”.
+  %section.PageTD.py-md-5.py-4
+    .container.containerFix1300
+      %h2.text-table.text-center
+        %span.wk-editable-text#home-PageTD-text CƠ HỘI NGHỀ NGHIỆP
+      .tableInfoCareers
+        .noItem Chưa có tin nào
+      .desktop-only
+        %table.table.table-bordered
+          %thead
+            %tr 
+              %th.fw-700.text-center STT
+              %th.fw-700.text-center Vị trí
+              %th.fw-700.text-center Số lượng
+              %th.fw-700.text-center Nơi Làm việc
+              %th.fw-700.text-center Ngày hết hạn
+              %th.fw-700.text-center Xem chi tiết
+          
+= render_view "components/footer"

@@ -1,0 +1,46 @@
+- page = paging[:page]
+- total_page = paging[:total_pages]
+- if total_page > 1
+  .paginationBlock
+    %nav.paginationNav{:style => "margin:auto;", "aria-label" => "Page navigation example"}
+      %ul.pagination
+        - if page > 1
+          %li.page-item
+            %a.page-link{:href => pagination_path(1)}
+              First
+        - if total_page > 1
+          %li.page-item
+            %a.page-link{:href => pagination_path(1),
+                          :id => page == 1 ? 'selected-page' : nil} 1
+        - if page > 4
+          %li.page-item
+            %a.page-link ...
+
+        - ([2, page - 2].max..page).each do |pag|
+          %li.page-item
+            %a.page-link{:href => pagination_path(pag), 
+                         :id => page == pag ? 'selected-page' : ''}= pag
+        - ((page + 1)..[(page + 2), total_page - 1].min).each do |pag|
+          %li.page-item
+            %a.page-link{:href => pagination_path(pag), 
+                         :id => page == pag ? 'selected-page' : ''}= pag
+
+        - if page < total_page - 3
+          %li.page-item
+            %a.page-link ...
+        - if total_page > 1 && page != total_page
+          %li.page-item
+            %a.page-link{:href => pagination_path(total_page)}
+              = total_page
+        - if total_page > 1 && total_page != page
+          %li.page-item
+            %a.page-link{:href => pagination_path(total_page)} Last
+  / :javascript
+  /   $(".page-link").click(function(){
+  /     var link = $(this).attr('link');
+
+  /     $.get(link).done(function(data){
+  /       $('#MainerHomeGP').html(data.css("#MainerHomeGP"))
+  /     });
+  /   });
+

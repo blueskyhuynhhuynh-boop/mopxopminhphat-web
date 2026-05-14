@@ -1,0 +1,86 @@
+#popupSearch {
+  background: #000000c2;
+  .modal-dialog {
+    max-width: 700px;
+  }
+  .modal-content {
+    background-color: rgba(31, 41, 55, 1);
+    border-radius: 20px;
+    overflow: hidden;
+    .modal-header {
+      border-bottom: 1px solid #dee2e64d;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+        background-size: 200% 100%;
+        animation: gradientShift 3s ease-in-out infinite;
+      }
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 200% 0;
+        }
+
+        50% {
+          background-position: -200% 0;
+        }
+      }
+      .modal-title {
+        color: #fff;
+      }
+      .close {
+        color: #fff;
+      }
+    }
+    .modal-body {
+      .search_mb {
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .inputBar {
+          position: relative;
+          input {
+            border-radius: 15px;
+            padding: 18px 55px 18px 20px;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            height: auto;
+            &::placeholder {
+              color: white;
+              opacity: 1; /* Đảm bảo không bị mờ trên trình duyệt như Firefox */
+            }
+          }
+          .submit {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 40px;
+            border: none;
+            background: transparent;
+            i {
+              color: #fff;
+              font-size: 20px;
+            }
+          }
+        }
+        .box-search-result {
+          color: rgba(255, 255, 255, 0.6);
+          .title-box{
+            font-weight: bold;
+          }
+          #historyList{
+            padding-left: 10px;
+            .item-history{
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}

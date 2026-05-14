@@ -1,0 +1,354 @@
+%h1.d-none= page.name
+= render_view "components/menu"
+%main.container-fluid#GioiThieu
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners{:alt => "Banner", :src => page.image_url, :decoding => "async",:loading => "lazy"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          = page.name
+  %section.PageLink
+    .container.containerFix1300
+      %ul 
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link{:href => "#Introduce1"} tổng quan
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link1{:href => "#Introduce4"} THÔNG ĐIỆP TGD
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link2{:href => "#Introduce5"} TẦM NHÌN - SỨ MỆNH
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link3{:href => "#Introduce6"} GIÁ TRỊ CỐt LÕI
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link4{:href => "#Introduce7"} LỊCH SỬ HÌNH THÀNH
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link6{:href => "#Introduce9"} KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI
+        %li 
+          %a.link.scroll-to.wk-editable-link#home-PageLink-link5{:href => "#Introduce8"} CHỨNG NHẬN
+  %section.Introduce1.py-md-5.py-4.overflow-hidden#Introduce1
+    .container.containerFix1300
+      .row 
+        .col-md-6.col-12 
+          .left-block
+            %p.text1.wk-editable-text#Introduce1-text{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true"} Chào mừng đến với
+            .text2.wk-editable-html#Introduce1-text1{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"} MỐP XỐP MINH PHÁT
+            .text3.wk-editable-html#Introduce1-text2{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"} Tấm sandwich panel với chủng loại đa dạng PIR/PUR/Rock wool/EPS đã trở thành thương hiệu được lựa chọn hàng đầu trên thị trường vật liệu xây dựng Việt Nam, được tín nhiệm sử dụng trong hàng ngàn công trình nhà máy công nghiệp, nông trại, phòng sạch, kho lạnh, ... khắp cả nước.
+        .col-md-6.col-12 
+          .item{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+            .specialVideoBlock.figure2
+              .imgPart.figure3{:title => "xem video"}
+                %img.imgVideo{:alt => "demo", :datalinkvideo => "https://www.youtube.com/embed/fS6xM0ya6k4?autoplay=1", :src => "https://i1.ytimg.com/vi/fS6xM0ya6k4/maxresdefault.jpg",:loading => "lazy"}/
+                .playVideoBtn
+                  %i.fa.fa-play
+              .videoFloatBlock
+                .btnHideVideo{:title => "close"}
+                  %i.deleteBlock x
+                .wrapVideo
+                  .videoPart
+                    %iframe{:allow => "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :title => "YouTube video player", :width => "560"}
+                    %img.imgLoading{:alt => "loading", :src => "/tassets/images/img_loading_1.gif"}/
+  %section.Introduce2.py-md-5.py-4#numberCount
+    .container.containerFix1300 
+      .infor.row
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+          .icon
+            %img.wk-editable-image#home-Introduce2-image{:src => "/tassets/images/mopxop/icon1.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text + 31
+            .des.wk-editable-html#home-Introduce2-text7 Năm đóng góp vào việc phát triển ngành sản xuất panel Việt 
+
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image1{:src => "/tassets/images/mopxop/icon2.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text1 + 37000
+            .des.wk-editable-html#home-Introduce2-text8 Số mét vuông sandwich panel được Phương Nam đưa ra thị trường trung bình mỗi năm
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image2{:src => "/tassets/images/mopxop/icon3.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text2 + 31
+            .des.wk-editable-html#home-Introduce2-text9 Năng lực sản xuất m2 mỗi ngày
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image3{:src => "/tassets/images/mopxop/icon4.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text3 > 3000000
+            .des.wk-editable-html#home-Introduce2-text10 Số công trình sử dụng Panel Phương Nam mỗi năm trong cả nước
+  %section.Introduce3.py-md-5.py-4#Introduce3
+    .container
+      .row{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %img.wk-editable-image#Introduce3-image{:src => "/tassets/images/mopxop/ab1.jpg",:alt => "hình ảnh"}
+    .container.containerFix1300.py-md-4.py-3
+      .row 
+        .col-md-8.col-12 
+          .left-block
+            .wk-editable-html#Introduce3-text Công ty TNHH Cách âm Cách nhiệt Phương Nam, tiền thân là Công ty sản xuất và thương mại Tôn Sài Gòn, được thành lập từ những năm 1992. Trải qua 30 năm, Phương Nam không ngừng cải tiến, phát triển và nâng cao chất lượng sản phẩm, đã được công nhận là đơn vị cung cấp vật liệu nhẹ cách nhiệt hàng đầu Việt Nam.
+            .wk-editable-html#Introduce3-text1 Năm 2019 đã đánh dấu năm phát triển vượt bậc về công nghệ sản xuất của Phương Nam. Ứng dụng thành tựu khoa học công nghệ cao, Phương Nam đã triển khai xây dựng thêm nhà máy số 2 theo tiêu chuẩn LEED của Mỹ, lắp đặt thêm 2 dây chuyền sản xuất panel liên tục công nghệ Châu Âu. Với tôn chỉ luôn luôn cải tiến, Phương Nam quyết tâm phát triển lên tầm cao mới, góp phần đổi mới ngành Vật liệu xây dựng Việt Nam.
+        .col-md-4.col-12
+          .right-block{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+            %a.figure2{ :contactText => "Chat Facebook", "data-target" => "#popup_registration_1", "data-toggle" => "modal"}
+              %img.wk-image{:src => web_config('logo_url'),:alt => "logo"}
+  %section.Introduce4.py-md-5.py-4.overflow-hidden#Introduce4
+    .container.containerFix1300
+      .vhtitleab
+        %h2.wk-editable-text#Introduce4-text{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"} THÔNG ĐIỆP TỔNG GIÁM ĐỐC
+      .row
+        .col-md-4.col-12 
+          .left-block{"data-aos": "fade-right","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+            .img-block
+              .dad
+                %img.child-block.wk-editable-image#Introduce4-image{:src => "/tassets/images/mopxop/ab1.jpg",:alt => "hình ảnh"}
+            .content-block 
+              .name 
+                .text1.wk-editable-text#Introduce4-text1 ÔNG GIÁP VĂN THANH
+                .text2.wk-editable-text#Introduce4-text2 Tổng Giám Đốc Phương Nam Panel
+              .solution.wk-editable-text#Introduce4-text3
+                Chất lượng cao với công nghệ sản xuất dẫn đầu là niềm tự hào của chúng tôi.
+        .col-md-8.col-12
+          .right-block 
+            .text-r.wk-editable-html#Introduce4-text4 Toàn cầu bảo vệ môi trường, bảo vệ thiên nhiên là bảo vệ sức khoẻ con người. Thế giới đang hứng chịu vô vàn tác động tiêu cực của thiên nhiên như bão, lũ, hạn hán và đặc biệt là sự nóng dần lên của trái đất. Các ý tưởng sáng tạo, khoa học công nghệ hiện đại, trình độ kỹ thuật tiên tiến được áp dụng, vật liệu xây dựng thế hệ mới ưu việt hơn ra đời, dần thay thế cho vật liệu truyền thống…( gạch nung, đá nung vôi, xi măng) giảm thiểu tác động môi trường, an toàn trong thi công xây dựng. Đây là xu hướng tất yếu để thích ứng và chủ động kiểm soát môi trường sống, bảo vệ sức khoẻ làm việc. Phương Nam nhận thức và thấu hiểu sâu sắc về xu hướng mới, quyết tâm nghiên cứu, quyết định đầu tư, áp dụng khoa học kỹ thuật công nghệ cao vào sản xuất vật liệu nhẹ, vật liệu xanh, thiết kế lắp dựng công trình xanh. Dây chuyền công nghệ sản xuất liên tục hàng loạt sản phẩm panel có tính năng và chất lượng vượt trội, như một giải pháp tiên phong thỏa mãn đầy đủ các tiêu chí xanh, sạch, an toàn, kinh tế và thẩm mỹ cho công trình xây dựng. Với tinh thần đó, qua hơn 25 năm cải tiến phát triển, không ngừng đổi mới, Phương Nam đã vươn lên trở thành Nhà sản xuất panel chất lượng hàng đầu của Việt Nam. Panel Phương Nam luôn luôn dẫn đầu công nghệ, nỗ lực nâng cao chất lượng sản phẩm và dịch vụ, xứng đáng là đối tác chiến lược tin tưởng nhất của quý khách hàng!
+  %section.Introduce5.py-md-5.py-4.overflow-hidden#Introduce5
+    .container.containerFix1300
+      .vhtitleab{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %h2.wk-editable-text#Introduce5-text TẦM NHÌN - SỨ MỆNH
+      .row
+        .col-md-6.col-12
+          .left-block.intro5-block{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+            .img-block 
+              .dad-block-64 
+                %img.child-block.wk-editable-image#Introduce5-image{:src => "/tassets/images/mopxop/tn1.jpg", :alt=> "image introduce5"}
+            .content-block 
+              %h3.wk-editable-text#Introduce5-text1 Tầm nhìn
+              .tend.wk-editable-text#Introduce5-text2 Phát triển và dẫn đầu ngành vật liệu nhẹ, vật liệu xanh phục vụ công trình xanh.
+        .col-md-6.col-12
+          .right-block.intro5-block.mt-md-0.mt-4{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+            .img-block 
+              .dad-block-64 
+                %img.child-block.wk-editable-image#Introduce5-image1{:src => "/tassets/images/mopxop/tn2.jpg", :alt=> "image introduce5"}
+            .content-block 
+              %h3.wk-editable-text#Introduce5-text3 Sứ mệnh
+              .tend.wk-editable-text#Introduce5-text4 Phát triển và dẫn đầu ngành vật liệu nhẹ, vật liệu xanh phục vụ công trình xanh.
+  %section.Introduce6.py-md-5.py-4.overflow-hidden#Introduce6
+    .container.containerFix1300
+      .vhtitleab{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %h2.wk-editable-text#Introduce6-text GIÁ TRỊ CỐt LÕI
+      .row 
+        .col-md-4.col-12
+          .item{"data-aos": "fade-right","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"} 
+            .img-block 
+              %img.wk-editable-image#Introduce6-image{:src => "/tassets/images/mopxop/gt2.png", :alt=> "image introduce5"}
+            .content-block
+              .nametitle.wk-editable-text#Introduce6-text1 SẢN PHẨM CHẤT LƯỢNG
+              .text.text-justify.wk-editable-text#Introduce6-text2 Đội ngũ Phương Nam luôn luôn phát huy tinh thần sáng tạo, ứng dụng công nghệ mới và không ngừng cải tiến đáp ứng nhu cầu cao của Quý khách hàng.
+        .col-md-4.col-12
+          .item{"data-aos": "fade-right","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"} 
+            .img-block 
+              %img.wk-editable-image#Introduce6-image1{:src => "/tassets/images/mopxop/gt3.png", :alt=> "image introduce5"}
+            .content-block
+              .nametitle.wk-editable-text#Introduce6-text3 CON NGƯỜI SÁNG TẠO
+              .text.text-justify.wk-editable-text#Introduce6-text4 Đội ngũ Phương Nam luôn luôn phát huy tinh thần sáng tạo, ứng dụng công nghệ mới và không ngừng cải tiến đáp ứng nhu cầu cao của Quý khách hàng.
+        .col-md-4.col-12
+          .item{"data-aos": "fade-right","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"} 
+            .img-block 
+              %img.wk-editable-image#Introduce6-image2{:src => "/tassets/images/mopxop/gt4.png", :alt=> "image introduce5"}
+            .content-block
+              .nametitle.wk-editable-text#Introduce6-text5 TỔ CHỨC VÌ MÔI TRƯỜNG
+              .text.text-justify.wk-editable-text#Introduce6-text6 Đội ngũ Phương Nam luôn luôn phát huy tinh thần sáng tạo, ứng dụng công nghệ mới và không ngừng cải tiến đáp ứng nhu cầu cao của Quý khách hàng.
+  %section.secStrength.Introduce7.py-md-5.py-4.overflow-hidden#Introduce7
+    .container.containerFix1300
+      .vhtitleab{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %h2.wk-editable-text#Introduce7-text LỊCH SỬ HÌNH THÀNH
+      .strengthBlock{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+        .leftBlock
+          %a.smallBlock.active{:href=>"#2017"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text2 Năm 2017
+          %a.smallBlock{:href=>"#2018"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text3 Năm 2018
+          %a.smallBlock{:href=>"#2019"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text4 Năm 2019
+          %a.smallBlock{:href=>"#2020"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text5 Năm 2020
+          %a.smallBlock{:href=>"#2021"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text6 Năm 2021
+          %a.smallBlock{:href=>"#2022"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text7 Năm 2022
+          %a.smallBlock{:href=>"#2023"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text8 Năm 2023
+          %a.smallBlock{:href=>"#2024"}
+            %span.text.namewhy.wk-editable-text#buildServerGoogelAds-secStrength-text9 Năm 2024
+        .rightBlock
+          .slideBlock
+            .owl-carousel.owl-theme.owlwhyBlock
+              .itemBlock{"data-hash" => "2017"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text2 2017
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r1-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2018"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-r2-text2 2018
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r2-text3 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2019"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text4 2019
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r3-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2020"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text5 2020
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r4-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2021"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text6 2021
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r5-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2022"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text7 2022
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r6-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2023"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text8 2023
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r7-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+              .itemBlock{"data-hash" => "2024"}
+                .item
+                  %p.text_1.wk-editable-text#buildServerGoogelAds-secStrength-text9 2024
+                  %p.text_2.wk-editable-text#buildServerGoogelAds-secStrength-r8-text1 CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TÔN SÀI GÒN
+  %section.Introduce9.py-md-5.py-4.overflow-hidden#Introduce9
+    .container.containerFix1300
+      .vhtitleab{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %h2.wk-editable-text#Introduce9-text KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI
+      .row 
+        .col-md-4.col-12
+          .item
+            .area_1
+              .imgPart
+                %img.wk-editable-image#Introduce9-image{:src => "/tassets/images/kh.jpg",:alt => "rate"}
+              .textPart
+                %p.text1.wk-editable-text#Introduce9-text1 Lưu Việt Sang
+                %p.text2.wk-editable-text#Introduce9-text2 Đến từ TP. Hà Nội
+            .area_2
+              %p.text.wk-editable-text#Introduce9-text3 Mình là người khá kỹ tính trong việc mua hàng, thế nhưng các sản phẩm tại AGS Techs lại làm mình vô cùng hài lòng về cả chất lượng sản phẩm cho đến cách tận tình tư vấn của cửa hàng khi mua hàng khi mua hàng tại đây.
+        .col-md-4.col-12
+          .item
+            .area_1
+              .imgPart
+                %img.wk-editable-image#Introduce9-image1{:src => "/tassets/images/kh.jpg",:alt => "rate"}
+              .textPart
+                %p.text1.wk-editable-text#Introduce9-text4 Lưu Việt Sang
+                %p.text2.wk-editable-text#Introduce9-text5 Đến từ TP. Hà Nội
+            .area_2
+              %p.text.wk-editable-text#Introduce9-text6 Mình là người khá kỹ tính trong việc mua hàng, thế nhưng các sản phẩm tại AGS Techs lại làm mình vô cùng hài lòng về cả chất lượng sản phẩm cho đến cách
+        .col-md-4.col-12
+          .item
+            .area_1
+              .imgPart
+                %img.wk-editable-image#Introduce9-image2{:src => "/tassets/images/kh.jpg",:alt => "rate"}
+              .textPart
+                %p.text1.wk-editable-text#Introduce9-text7 Lưu Việt Sang
+                %p.text2.wk-editable-text#Introduce9-text8 Đến từ TP. Hà Nội
+            .area_2
+              %p.text.wk-editable-text#Introduce9-text9 Mình là người khá kỹ tính trong việc mua hàng, thế nhưng các sản phẩm tại AGS Techs lại làm mình vô cùng hài lòng về cả chất lượng sản phẩm cho đến cách
+  %section.Introduce8.py-md-5.py-4.overflow-hidden#Introduce8
+    .container.containerFix1300
+      .vhtitleab{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+        %h2.wk-editable-text#Introduce8-text CHỨNG NHẬN
+      .owl-carousel.owl-theme.slideIntro8{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text1 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image1{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text2 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image2{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text3 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image3{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text4 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image4{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text5 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image51{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text6 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image6{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text7 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image7{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text8 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image8{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text9 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image9{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text10 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image10{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text11 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image11{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text12 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image12{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text13 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image13{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text14 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image14{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text15 Chứng Nhận Vietnam Value
+        .item
+          .img-block 
+            .dad-block-127  
+              %img.child-block.wk-editable-image#Introduce8-image15{:src => "/tassets/images/mopxop/Phuong_Nam_Panel___Banner_trang_chu_3.jpg", :alt => "slide introduce8",:loading => "lazy"}
+          .content-block 
+            %h3.wk-editable-text#Introduce8-text16 Chứng Nhận Vietnam Value
+= render_view "components/footer"

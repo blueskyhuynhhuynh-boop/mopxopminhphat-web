@@ -1,0 +1,51 @@
+%footer#footerAGS.container-fluid
+  .container.containerFix1300
+    .row 
+      .col-md-3.col-12 
+        .item.first-col
+          %a.logo.d-block{:href => root_path, :title => "Trang chủ","data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true" }
+            %img{:src => web_config("logo_url"),:alt => "logo",:loading => "lazy"}
+          .des.wk-editable-html#footer-text2{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"} CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI MỐP XỐP CÁCH NHIỆT MINH PHÁT
+          %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+            %strong Địa chỉ:
+            %span= "#{web_config('office_address')}"
+          %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+            %strong Địa chỉ:
+            %span= "#{web_config('vpdd')}"
+          %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "800"}
+            %strong Điện thoại:
+            %span= "#{web_config('phone')}" + " - " + "#{web_config('phone_text')}"
+          %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "1000"}
+            %strong Email:
+            %span= "#{web_config('email')}"
+          %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "1200"}
+            %strong Email:
+            %span= "#{web_config('email2')}"
+      .col-md-3.col-12
+        .item.second-col 
+          .title-footer.wk-editable-html#footer-text Chính sách
+          - if  get_policies.present?
+            - get_policies.each do | policy |
+              %a.text2{:href => policy_path(policy),:title => policy.name}= policy.name
+      .col-md-3.col-12
+        .item.third-col 
+          .title-footer.wk-editable-html#footer-text1 Danh mục
+          %a.text2.wk-editable-link#footerAGS-link{:href=>"#",:title => "Trang chủ"}
+            .wk-text Trang chủ
+          %a.text2.wk-editable-link#footerAGS-link1{:href=>"#",:title => "Về chúng tôi"}
+            .wk-text Về chúng tôi
+          %a.text2.wk-editable-link#footerAGS-link2{:href=>"#",:title => "Hóa chất"}
+            .wk-text Hóa chất
+          %a.text2.wk-editable-link#footerAGS-link3{:href=>"#",:title => "Tin tức"}
+            .wk-text Tin tức
+          %a.text2.wk-editable-link#footerAGS-link4{:href=>"#",:title => "Liên hệ"}
+            .wk-text Liên hệ
+          %a.text2.wk-editable-link#footerAGS-link5{:href=>"#",:title => "Phản hồi"}
+            .wk-text FAQ
+      .col-md-3.col-12
+        .item.last-col 
+          .title-footer.wk-editable-html#footer-text-contact Contact
+          .wrap-icon 
+            %a.icon{:href => "#{web_config('social.facebook_link')}",:title => "facebook social"}
+              %i.fa-brands.fa-facebook-f
+    

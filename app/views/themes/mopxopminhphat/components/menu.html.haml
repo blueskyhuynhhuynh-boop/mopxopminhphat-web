@@ -1,0 +1,240 @@
+%header#menu_desktop.container-fluid 
+  -# %nav.blockover
+  -#   .row.rowFix
+  -#     .right
+  -#       .item
+  -#         %i.fa-brands.fa-whatsapp.icon
+  -#         %a.phone.contactCallPopUp.fw-500
+  -#       .item 
+  -#         %i.fa-regular.fa-envelope.icon
+  -#         %a.contactCallPopUp.fw-500{ :contactText => "Gửi email", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => "mailto:#{web_config('email')}", :idGoogleGet => "btn_mail_id", :data => "mail", :title => "Liên hệ qua email" }= web_config('email')
+  -#     .left.secTrans#ggtrans-desk
+
+  %nav.header
+    .container-fluid{ :style => "padding:0 30px" }
+      .main-header.row
+        %a{ :href => root_path, :title => "Trang chủ" }
+          .logo
+            %img#log{ :src => web_config("logo_url"), :alt => "Logo",width: "70",height: "70"}
+        .nav-bar 
+          .menuBlock
+            .wrapFlex
+              -# .menuItem_1
+              -#   %a.linkLevel_1{ :href => root_path, :title => "Trang chủ", :style => "color : var(--xanh_chu_da0)" } Trang chủ
+              .menuItem_1
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link{ :href => page_path("gioi-thieu"), :title => "Giới thiệu" } Giới thiệu
+              - if product_categories.present?
+                - product_categories.each do |category|
+                  - if category.children.published.any?
+                    .menuItem_1.dropDown
+                      %a.linkLevel_1{ :href => category_path(category), :title => category.name }= category.name.capitalize
+                      .blockCateLevel_2
+                        - category.children.order(:display_order).published.each do | child |
+                          - if child.children.published.any?
+                            .menuItem_2.dropDown
+                              %a.linkLevel_2{ :href => category_path(child), :title => child.name }= child.name.capitalize
+                              .blockCateLevel_3
+                                - child.children.published.each do | childrenS |
+                                  - if childrenS.children.published.any?
+                                    .menuItem_3.dropDown
+                                      - child.children.published.each do | cate |
+                                        %a.linkLevel_3{ :href => category_path(cate), :title => cate.name }= cate.name.capitalize
+                                        - if cate.children.published.any?
+                                          .blockCateLevel_4 
+                                            - childrenS.children.published.each do |subChild|
+                                              .menuItem_4
+                                                %a.linkLevel_4{ :href => category_path(subChild), :title => "#{subChild.name} sản phẩm" }= subChild.name
+                                  - else
+                                    .menuItem_3
+                                      %a.linkLevel_3{ :href => category_path(childrenS), :title => "#{childrenS.name} sản phẩm" }= childrenS.name
+                          - else
+                            .menuItem_2
+                              %a.linkLevel_2{ :href => category_path(child), :title => child.name }= child.name
+                  - else
+                    .menuItem_1
+                      %a.linkLevel_1{ :href => category_path(category), :title => "#{category.name} sản phẩm" }= category.name
+              .menuItem_1
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link1{ :href => page_path("du-an"), :title => "Dự án" } Dự án
+              - if post_categories.any?
+                - post_categories.each do |category|
+                  - if category.children.any?
+                    .menuItem_1.dropDown
+                      %a.linkLevel_1{ :href => category_path(category), :title => "Danh mục bài viết: #{category.name}" }= category.name
+                      .blockCateLevel_2
+                        - category.children.published.each do |child|
+                          .menuItem_2
+                            %a.linkLevel_2{ :href => category_path(child), :title => "#{child.name} bài viết" }= child.name
+                  - else
+                    .menuItem_1
+                      %a.linkLevel_1{ :href => category_path(category), :title => "#{category.name} bài viết" }= category.name
+              -# - if get_policies.present?
+              -#   .menuItem_1.dropDown
+              -#     %p.linkLevel_1 Chính sách
+              -#     .blockCateLevel_2
+              -#       - get_policies.each do |policy|
+              -#         .menuItem_2
+              -#           %a.linkLevel_2{ :href => policy_path(policy), :title => "#{policy.name} chính sách" }= policy.name
+              .menuItem_1
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link2{ :href => page_path('tuyen-dung'), :title => "Tuyển dụng" } Tuyển dụng
+              .menuItem_1
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link3{ :href => page_path('tu-van'), :title => "Tư vấn" } Tư vấn    
+              .menuItem_1
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link4{ :href => page_path('lien-he'), :title => "Liên hệ Hóa Chất Gia Hoàng" } Liên hệ
+              .searchArea
+                %a.searchClickItem{  "data-target" => "#popupSearch", "data-toggle" => "modal" }
+                  %i.fa.fa-search{ "aria-hidden" => "true", "data-toggle" => "tooltip", "data-placement" => "bottom", :title => "Tìm kiếm sản phẩm" }
+                -# .searchDropDown{ :style => "display: none;" }
+                -#   %form.searchBlock_1.search_mb.search.searchPart{ action: '/search', method: 'GET',:title => "form tìm kiếm" }
+                -#     .form-group
+                -#       %input.form-control{ :placeholder => "Search", :type => "text", name: 'key', value: params[:key] }
+                -#     %button.button_search.submit
+                -#       %i.iTagSearch.fa.fa-search{ "aria-hidden" => "true" }
+              .menuItem_1.d-flex.align-items-center
+                .secTrans.gtranslate_wrapper
+
+%nav#contactBtnBlock.Desktop_3.desktop-only
+  .smallBlock.messengerBlock
+    %a.imgPart.contactCallPopUp{ :contactText => "Chat Facebook", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => web_config("social.messenger_link"), :rel => "nofollow", :idGoogleGet => "btn_messenger_id", :title => "Chat với chúng tôi qua Messenger" }
+      %img.messFacePartImg.p-0{ :alt => "Facebook Messenger", :src => "/tassets/images/messenger_item_2.png"}
+    
+  .smallBlock.zaloBlock
+    %a.imgPart.contactCallPopUp{ :contactText => "Chat Zalo", "data-target" => "#popupWhenClickContact", :rel => "nofollow", "data-toggle" => "modal", :dataHref => web_config("social.zalo_link"), :idGoogleGet => "btn_zalo_id", :title => "Chat với chúng tôi qua Zalo" }
+      %img.zaloPartImg{ :alt => "Zalo Chat", :src => "/tassets/images/zalo_item_2.png"}
+  .smallBlock.phoneBlock
+    %a.imgPart{ "data-bs-toggle": "modal", "data-target" => "#popupContact", "data-toggle" => "modal" }
+      %img.phonePartImg{ :alt => "Liên hệ qua điện thoại", :src => "/tassets/images/phone_item_2.svg"}
+    .textPart_2
+      Gọi ngay:
+      %b= web_config("phone")
+#pageUpBlock
+  .pageUp.hidePageUp
+    %i.pageUpImg.fa.fa-angle-up{ "aria-hidden" => "true", :title => "Về đầu trang" }
+
+%header#menu_mobile.container
+  .container
+    .main-header.row
+      %a{ :href => root_path, :title => "Trang chủ" }
+        .logo-mobile
+          %img{ :src => web_config("logo_url"), :alt => "Logo"}
+      %button.barsArea
+        .barsPart
+          .line.line2.line_1
+          .line.line2.line_2
+          .line.line2.line_3
+#blockCateMobile.blockMobile
+  .blockCateLevel_1
+    .lang.d-flex.align-items-center
+      %p.text1.mb-0 Ngôn ngữ :
+      .secTrans#ggtrans-mobi
+        .gtranslate_wrapper
+    .menuItem_1.dropDown
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link{:href => page_path('gioi-thieu')} Giới thiệu
+    .menuItem_1.dropDown
+      %a.linkLevel_1{:href => root_path} Trang chủ
+     
+    - if product_categories.any?
+      - product_categories.each do |productCate|
+        - if productCate.children.any?
+          .menuItem_1.dropDown
+            %a.linkLevel_1{:href => category_path(productCate)}= productCate.name
+            .btnToggle_1
+              %i.faFix.fa.fa-angle-right{"aria-hidden" => "true"}
+              %i.faFix.fa.fa-angle-down{"aria-hidden" => "true"}
+            .blockCateLevel_2
+              - productCate.children.order(:display_order).published.each do | childP |
+                - if childP.children.present?
+                  .menuItem_2.dropDown{:connectcate2and3 => category_path(childP)}
+                    %a.linkLevel_2{:href => category_path(childP), :title => childP.name}= childP.name
+                    .btnToggle_2
+                      %i.faFix.fa.fa-angle-right{"aria-hidden" => "true"}
+                - else 
+                  .menuItem_2
+                    %a.linkLevel_2{:href => category_path(childP), :title => childP.name}= childP.name
+        - else 
+          .menuItem_1
+            %a.linkLevel_1{:href => category_path(productCate)}= productCate.name 
+    .menuItem_1
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link4{:href => page_path('du-an')} Ứng dụng
+    - if post_categories.present?
+      - post_categories.each do |category| 
+        - if category.children.published.any?    
+          .menuItem_1.dropDown
+            %a.linkLevel_1{:href => category_path(category)}= category.name.upcase
+            .btnToggle_1
+              %i.faFix.fa.fa-angle-right{"aria-hidden" => "true"}
+              %i.faFix.fa.fa-angle-down{"aria-hidden" => "true"}
+            .blockCateLevel_2
+              .menuItem_2.dropDown
+                - category.children.published.each do |child|
+                  %a.linkLevel_2{:href => category_path(child)}= child.name.upcase  
+        - else
+          .menuItem_1
+            %a.linkLevel_1{:href => category_path(category)}= category.name.upcase  
+    -# - if get_policies.present?
+    -#   .menuItem_1.dropDown
+    -#     %a.linkLevel_1 CHÍNH SÁCH
+    -#     .btnToggle_1
+    -#       %i.faFix.fa.fa-angle-right{"aria-hidden" => "true"}
+    -#       %i.faFix.fa.fa-angle-down{"aria-hidden" => "true"}
+    -#     .blockCateLevel_2
+    -#       .menuItem_2.dropDown
+    -#         - get_policies.sort_by{|s| s&.prop('display_order').to_i}.each do |policy|
+    -#           %a.linkLevel_2{:href=>policy_path(policy)}= policy.name
+    .menuItem_1
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link3{:href => page_path('tuyen-dung')} Tuyển dụng
+    .menuItem_1
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link5{:href => page_path('tu-van')} Tư vấn
+    .menuItem_1
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link2{:href => page_path('lien-he')} Liên hệ
+    .blockCateLevel_3
+      .btnBackToBlockCate_2 Quay lại
+      - if product_categories.present?
+        - product_categories.each do |category|
+          - category.children.published.each do |sub_cate|
+            - if category.children.present?
+              .wrapBlockCate_3{:connectcate2and3 => category_path(sub_cate)}
+                %p.nameCate_2= sub_cate.name
+
+                - sub_cate.children.published.each do |subs|
+                  - if subs.children.published.present?
+                    .menuItem_3.dropDown.active
+                      %a.linkLevel_3{:href => category_path(subs)}= subs.name
+                      .btnToggle_3
+                        %i.faFix.fa.fa-angle-right{"aria-hidden" => "true"}
+                        %i.faFix.fa.fa-angle-down{"aria-hidden" => "true"}
+                      .blockCateLevel_4
+                        .menuItem_4
+                          - subs.children.published.each do |mul_subcate|
+                            %a.linkLevel_4{:href => category_path(mul_subcate)}= mul_subcate.name
+                  -else
+                    .menuItem_3
+                      %a.linkLevel_3{:href => category_path(subs)}= subs.name
+            -else
+              .menuItem_3
+                %a.linkLevel_3{:href => category_path(sub_cate)}= sub_cate.name
+    
+%nav#menuEndPage.Mobile_3.mobile-only
+  .wrapWidth
+    .row
+      .cartPart.smallPart
+        %a.cartBlock_1.aTag{:href => cart_path, :title => "giỏ hàng"}
+          .cartItem
+            %i.fa.fa-cart-plus{"aria-hidden" => "true"}
+              %i.amountProduct.order_items{class: cart_count > 0 ? '' : 'd-none', data: { count: cart_count }}= cart_count
+        %p.textUnderItem Giỏ hàng
+      .messFacePart.smallPart
+        %a.aTag.contactCallPopUp{:contactText => "Chat Facebook", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => "#{web_config("social.messenger_link")}", :rel => "nofollow", :idGoogleGet => "btn_messenger_id", :title => "Liên hệ"}
+          %img.messFacePartImg{:alt => "messengerItem", :src => "/tassets/images/messenger_item_2.png"}/
+        %p.textUnderItem Messenger
+      .phonePart.centerPart
+        %a.contactCallPopUp{:contactText => "Gọi điện", "data-target" => "#popupWhenClickContact", "data-toggle" => "modal", :dataHref => "tel:#{web_config("phone")}", :idGoogleGet => "btn_phone_id", :data => "phone", :title => "Liên hệ"}
+          %img.phonePartImg{:alt => "phoneItem", :src => "/tassets/images/phone_item_2.svg"}/
+      .zaloPart.smallPart
+        %a.aTag.contactCallPopUp{:contactText => "Chat Zalo", "data-target" => "#popupWhenClickContact", :rel => "nofollow", "data-toggle" => "modal", :dataHref => "#{web_config("social.zalo_link")}", :idGoogleGet => "btn_zalo_id", :title => "Liên hệ"}
+          %img.zaloPartImg{:alt => "Zalo", :src => "/tassets/images/zalo_item_2.png"}/
+        %p.textUnderItem Zalo
+      .youtubePart.smallPart
+        %a.aTag.contactCallPopUp{:href => "#{web_config("link_map")}", :target => "_blank"}
+          %img.youtubePartImg{:alt => "map", :src => "/tassets/images/map_item.svg"}/
+        %p.textUnderItem Định vị
+= render_view "components/_popup_registration"

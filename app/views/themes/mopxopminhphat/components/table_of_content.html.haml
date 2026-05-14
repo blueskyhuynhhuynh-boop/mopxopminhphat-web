@@ -1,0 +1,11 @@
+- if content.catalog.present?
+  .tableOfContent.appearContent
+    .title
+      Nội dung bài viết:
+      %i.fa.fa-angle-down.clickToggle{"aria-hidden" => "true"}
+    #bookmark-list.mucLucPart
+      %ul
+        - content.catalog.each do |item|
+          %li{ class: item['type'] == 'h2' ? "data" : "sub_data" }
+            %a{ href: "#" + item['id']}
+              = item['name']

@@ -1,0 +1,155 @@
+= render_view "components/menu"
+%main.container-fluid#ChinhsachPL
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners.wk-editable-image#banner-ChinhsachPL-image{:alt => "Banner", :src => "/tassets/images/banner-catgory.webp"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= page.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          %a{:href => page_path(page)}
+          = page.name
+  %section.PageLink
+    .container.containerFix1300
+      %ul 
+        %li 
+          %a.link.wk-editable-link#home-PageLink-link{:href => "/chinh-sach-phuc-loi/"} Chính sách phúc lợi
+        %li 
+          %a.link.wk-editable-link#home-PageLink-link1{:href => "/tuyen-dung/"} Thông tin tuyển dụng
+  %section.CS1.py-md-5.py-4
+    .container.containerFix1300
+      .vhtitleab
+        %h2.wk-editable-text#CS1-text{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"} Chính sách phúc lợi
+      .row 
+        .col-md-6.col-12
+          .left-block
+            .tit
+              %h2.wk-editable-text#CS1-text1 Văn hóa doanh nghiệp
+            .sub-text.text-justify.wk-editable-html#CS1-text2 Để đáp ứng cho sự phát triển ngày càng lớn mạnh của Phương Nam Panel, chúng tôi đang tuyển dụng vị trí có kinh nghiệm như Kế toán, Kế hoạch, Thư ký, Quản lý kho, Kỹ sư điện..
+        .col-md-6.col-12
+          .right-block 
+            %img.wk-editable-image#CS1-image{:src => "/tassets/images/mopxop/vh1.jpg",:alt => "image",:loading => "lazy"}
+  %section.CS2.py-md-5.py-4
+    .container.containerFix1300
+      .tit
+        %h2.wk-editable-text#CS2-text Video Clips
+      .owl-carousel.owl-theme.slideVideoCS{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+        - get_videos.each do |video|
+          .item
+            .specialVideoBlock.figure2
+              .imgPart.figure3{:title => "xem video"}
+                %img.imgVideo{:alt => "demo", :datalinkvideo => "https://www.youtube.com/embed/#{video.prop('id')}?autoplay=1", :src => "https://i1.ytimg.com/vi/#{video.prop('id')}/maxresdefault.jpg",:loading => "lazy"}/
+                .playVideoBtn
+                  %i.fa.fa-play
+              .content.mt-2
+                %p.fw-700.fs-18.text-center= video.name
+                
+              .videoFloatBlock
+                .btnHideVideo{:title => "close"}
+                  %i.deleteBlock x
+                .wrapVideo
+                  .videoPart
+                    %iframe{:allow => "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :title => "YouTube video player", :width => "560"}
+                    %img.imgLoading{:alt => "loading", :src => "/tassets/images/img_loading_1.gif"}/
+  - if (featured_images = page.get_featured_images).any?
+    %section.CS3.py-md-5.py-4
+      .container.containerFix1300
+        .tit
+          %h2.wk-editable-text#CS3-text Album Hình Ảnh
+        .owl-carousel.owl-theme.slideVideoCS
+          - featured_images.each do |image|
+            .item 
+              .dad-block-56
+                %img.child-block{:alt => page.name, :src => image['link'],:loading => "lazy"}
+  %section.benefits-overview.py-md-5.py-4
+    .container.containerFix1300
+      %p.text1.wk-editable-text#benefits-text1 Chế độ phúc lợi
+      %p.text2.wk-editable-text#benefits-text2 Tài sản lớn nhất của Phương Nam Panel là con người, vì vậy Phương Nam Panel luôn có chính sách để phát hiện, thu hút, bồi dưỡng, trọng dụng và đãi ngộ xứng đáng đối với người có tài năng. Phương Nam Panel đầu tư đẩy mạnh các hoạt động đào tạo, chú trọng xây dựng chính sách lương thưởng, phúc lợi xã hội và chăm sóc sức khỏe cho nhân viên, nhằm đảm bảo các quyền lợi chính đáng của nhân viên cả về vật chất lẫn tinh thần...
+      .row.g-4.align-items-start
+        .col-lg-3
+          .image-placeholder
+            %img.img-fluid.rounded.shadow.wk-editable-image#benefits-image{ src: "/tassets/images/mopxop/Phuong_Nam_Panel_Banner_Gioi_Thieu.jpg", alt: "Workplace" }
+
+        .col-lg-9
+          .row.g-3
+            .col-md-6
+              .benefit-item
+                %h3.wk-editable-text#benefits-text3 Bảo hiểm, trợ cấp
+                %p.wk-editable-text#benefits-text4 Ở công ty Phượng Nam Panel, nhân viên luôn là tài sản quan trọng và chúng tôi luôn tạo điều kiện làm việc tốt nhất cho nhân viên.
+            .col-md-6
+              .benefit-item
+                %h3.wk-editable-text#benefits-text5 Đánh giá Công việc
+                %p.wk-editable-text#benefits-text6 Đánh giá năng lực và hiệu quả công việc một cách minh bạch, tạo động lực để nâng cao chất lượng công việc.
+            .col-md-6
+              .benefit-item
+                %h3.wk-editable-text#benefits-text7 Đào tạo và phát triển
+                %p.wk-editable-text#benefits-text8 Đào tạo và phát triển nguồn nhân lực là kim chỉ nam hàng đầu của ban lãnh đạo...
+            .col-md-6
+              .benefit-item
+                %h3.wk-editable-text#benefits-text9 Lương, thưởng
+                %p.wk-editable-text#benefits-text10 Ngoài chế độ lương theo quy chế rõ ràng, Phượng Nam Panel luôn duy trì mức lương cạnh tranh và chế độ đãi ngộ khác...
+  %section.Introduce2.py-md-5.py-4#numberCount
+    .container.containerFix1300 
+      .infor.row
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "0"}
+          .icon
+            %img.wk-editable-image#home-Introduce2-image{:src => "/tassets/images/mopxop/icon1.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text + 31
+            .des.wk-editable-html#home-Introduce2-text7 Năm đóng góp vào việc phát triển ngành sản xuất panel Việt 
+
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "200"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image1{:src => "/tassets/images/mopxop/icon2.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text1 + 37000
+            .des.wk-editable-html#home-Introduce2-text8 Số mét vuông sandwich panel được Phương Nam đưa ra thị trường trung bình mỗi năm
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "400"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image2{:src => "/tassets/images/mopxop/icon3.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text2 + 31
+            .des.wk-editable-html#home-Introduce2-text9 Năng lực sản xuất m2 mỗi ngày
+        .item.col-md-3.col-12{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+          .icon 
+            %img.wk-editable-image#home-Introduce2-image3{:src => "/tassets/images/mopxop/icon4.png",:alt => "icon"}
+          .content 
+            %p.number.wk-editable-text#home-Introduce2-text3 > 3000000
+            .des.wk-editable-html#home-Introduce2-text10 Số công trình sử dụng Panel Phương Nam mỗi năm trong cả nước
+  %section.development-opportunities.py-md-5.py-4
+    .container.containerFix1300
+      %h3.mb-4.wk-editable-text#development-text Cơ hội phát triển
+      %p.lead.mb-5.wk-editable-text#development-text1
+        Với mục tiêu hướng đến những cơ hội dành cho từng vị trí được Trải nghiệm công việc - Thuyên chuyển công việc - Phát triển tài năng chuyên môn - Thăng tiến, Phương Nam Panel luôn định hướng và tạo cơ hội phát triển nghề nghiệp cho nhân viên của mình thông qua các chính sách đào tạo và lộ trình đánh giá năng lực, chính sách thăng tiến rõ ràng, phù hợp, giúp nhân viên phát huy năng lực, nhận ra các khả năng tiềm ẩn của chính mình và ghi nhận
+
+      .row.g-4
+        .col-lg-5
+          .training-policy
+            %h2.wk-editable-text#development-text2 CHÍNH SÁCH ĐÀO TẠO
+            %p.text-center.wk-editable-text#development-text3 ổ chức khóa đào tạo nhầm phổ biến các quy định, chính sách tuân thủ cho toàn bộ nhân viên, mở các khóa đào tạo nghiệp vụ cho các phòng ban chuyên môn
+
+        .col-lg-7
+          .training-types.d-flex.flex-column.gap-3
+            .training-item.d-flex.align-items-center
+              %i.fas.fa-user-tie
+              %div
+                %h3.wk-editable-text#development-text4 ĐÀO TẠO ĐỊNH HƯỚNG
+                %p.wk-editable-text#development-text5 Tổ chức khóa đào tạo nhầm phổ biến các quy định, chính sách tuân thủ cho toàn bộ nhân viên, mở các khóa đào tạo nghiệp vụ cho các phòng ban chuyên môn
+            .training-item.d-flex.align-items-center
+              %i.fas.fa-tools
+              %div
+                %h3.wk-editable-text#development-text6 ĐÀO TẠO BỔ SUNG
+                %p.wk-editable-text#development-text7 Thường xuyên mở các khóa đào tạo...
+            .training-item.d-flex.align-items-center
+              %i.fas.fa-graduation-cap
+              %div
+                %h3.wk-editable-text#development-text8 ĐÀO TẠO KỸ NĂNG
+                %p.wk-editable-text#development-text9 Đào tạo kỹ năng chuyên môn, kỹ năng mềm...
+            .training-item.d-flex.align-items-center
+              %i.fas.fa-chart-line
+              %div
+                %h3.wk-editable-text#development-text10 ĐÀO TẠO NÂNG CAO
+                %p.wk-editable-text#development-text11 Đào tạo nâng cao kiến thức chuyên sâu...
+= render_view "components/footer"

@@ -1,0 +1,365 @@
+.ImageTD {
+  .img-block {
+    position: relative;
+    margin: 0 -15px;
+  }
+  .sub-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .posi-text {
+      max-width: 500px;
+      padding: 80px 35px 30px;
+      background-color: rgba(40, 59, 148, 0.85);
+      color: #fff;
+      font-size: 15px;
+      line-height: 23px;
+      position: relative;
+      i {
+        position: absolute;
+        top: 25px;
+        font-size: 36px;
+        line-height: 36px;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .sub-text {
+      position: relative;
+      .posi-text {
+        padding: 80px 15px 30px;
+      }
+      .containerFix1300 {
+        padding: 0;
+      }
+    }
+  }
+}
+.PageTD {
+  .text-table {
+    margin-bottom: 30px;
+    display: block;
+    position: relative;
+    font-size: 24px;
+    line-height: 36px;
+    color: #2d3591;
+    text-transform: uppercase;
+    font-weight: 600;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      left: 0;
+      right: 0;
+    }
+    span {
+      background-color: #fff;
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .noItem {
+    text-align: center;
+    background: url("/tassets/images/mopxop/nothing-found.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 200px;
+    padding: 10px 10px;
+    font-size: 18px;
+    width: 100%;
+  }
+  .table {
+    thead {
+      background-color: #2d3591;
+      color: #fff;
+      th {
+        border-right: 1px solid #fff;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+#TuyenDung {
+  .PageLink {
+    @media (max-width: 768px) {
+      display: block;
+      position: unset;
+      ul {
+        gap: 15px;
+        li {
+          .link {
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+  .vhtitleab {
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+    text-align: center;
+    &::before {
+      content: "";
+      width: 65px;
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-color: var(--xanh_chu_da0);
+    }
+    h2 {
+      font-size: 40px;
+      line-height: 55px;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 25px;
+        line-height: 37px;
+      }
+    }
+  }
+}
+#ChinhsachPL {
+  .PageLink {
+    @media (max-width: 768px) {
+      display: block;
+      position: unset;
+      ul {
+        gap: 15px;
+        li {
+          .link {
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+  .vhtitleab {
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+    text-align: center;
+    &::before {
+      content: "";
+      width: 65px;
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-color: var(--xanh_chu_da0);
+    }
+    h2 {
+      font-size: 40px;
+      line-height: 55px;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 25px;
+        line-height: 37px;
+      }
+    }
+  }
+  .tit {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--mau_chu_dao2);
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 37px;
+    }
+  }
+}
+.CS1 {
+  .left-block {
+    .tit {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--mau_chu_dao2);
+      }
+      h2 {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 37px;
+      }
+    }
+  }
+  .row {
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+  }
+}
+.CS2 {
+  #owl-nav1 {
+    display: block;
+    .owl-prev {
+      left: -10px;
+    }
+    .owl-next {
+      right: -10px;
+    }
+  }
+}
+.CS3 {
+  #owl-nav1 {
+    display: block;
+    .owl-prev {
+      left: -10px;
+    }
+    .owl-next {
+      right: -10px;
+    }
+  }
+}
+.benefits-overview {
+  background: #f2f2f2;
+  .text1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .text2 {
+    text-align: justify;
+    padding: 5px 0;
+    margin-bottom: 20px;
+  }
+  .benefit-item {
+    padding: 25px;
+    border-radius: 8px;
+
+    h3 {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      padding: 10px 0;
+    }
+  }
+}
+
+.development-opportunities {
+  h3 {
+    font-size: 28px;
+  }
+
+  .lead {
+    font-size: 16px;
+    line-height: 1.6;
+    width: calc(100% - 400px);
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.training-policy {
+  padding: 30px;
+  width: 370px;
+  height: 370px;
+  border-radius: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 2px solid var(--mau_chu_dao2);
+
+  h2 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #666;
+  }
+}
+
+.training-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  i {
+    font-size: 2em;
+    color: #fff;
+    background-color: var(--mau_chu_dao2);
+    padding: 15px;
+    border-radius: 50%;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    margin: 0 0 5px;
+    color: var(--mau_chu_dao2);
+  }
+
+  p {
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.4;
+    color: #666;
+  }
+}
+.link-map {
+  iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,104 @@
+= render_view "components/menu"
+#Search.bg-white
+  %section.secBreadcrumbs
+    .container.containerFix1300
+      .breadcrumbs
+        %ul.d-flex{:style => "list-style:none;gap:15px;"}
+          %li
+            %svg{"xmlns" => "http://www.w3.org/2000/svg", "width" => "14", "height" => "14", "viewBox" => "0 0 13 13", "fill" => "none"}
+              %path{"d" => "M5.41683 10.8333V7.58333H7.5835V10.8333H10.2918V6.5H11.9168L6.50016 1.625L1.0835 6.5H2.7085V10.8333H5.41683Z", "fill" => "#BDBDBD"}
+            %a.text1{:href => '/'} Trang chủ
+          %li.text2 / Kết quả tìm kiếm
+  - if products.present? && posts.present?
+    - sorted_products = products.sort_by { |p| I18n.transliterate(p.name.to_s).downcase }
+    %section.secSearch.secBlock1.secBlock1.py-5
+      .container.containerFix1300
+        %p.fs18
+          %strong Sản phẩm
+        .row
+          - sorted_products.each do |product|
+            .col-md-3.col-6
+              .item.my-1
+                %a.d-block.img-block{ href: product_path(product), title: product.name }
+                  .dad-block-100.figure2
+                    %img.child-block-scale.scale{ alt: product.name, src: product.image_url, loading: "lazy" }
+                .content-block 
+                  %a.d-block{ href: product_path(product), title: product.name }
+                    %h3.text-1.fs18.fw-600= product.name.capitalize
+                  .tag-infor
+                    - if product.prop( 'cach-nhiet').present?
+                      .tag-bl Cách nhiệt
+                    - if product.prop('chong-chay').present?
+                      .tag-bl Chống cháy
+                    - if product.prop( 'cach-am').present?
+                      .tag-bl Cách âm
+                    - if product.prop('tham-my').present?
+                      .tag-bl Thẩm mỹ
+                  - if product.description.present?
+                    %p.fs14.des= product.description
+    - sorted_posts = posts.sort_by { |p| I18n.transliterate(p.name.to_s).downcase }
+    %section.secSearch.secBlock1.py-5
+      .container.containerFix1300
+        %p.fs18
+          %strong Bài viết
+        .row
+          - sorted_posts.each do |post| 
+            .col-md-3.col-6
+              .item.my-1
+                %a.d-block.img-block{ href: post_path(post), title: post.name }
+                  .dad-block-100.figure2
+                    %img.child-block-scale.scale{ alt: post.name, src: post.image_url, loading: "lazy" }
+                .content-block 
+                  %a.d-block{ href: post_path(post), title: post.name }
+                    %h3.text-1.fs18.fw-600= post.name.capitalize
+                  - if post.description.present?
+                    %p.fs14.des= post.description
+  - elsif products.present?
+    - sorted_products = products.sort_by { |p| I18n.transliterate(p.name.to_s).downcase }
+    %section.secSearch.secBlock1.py-5
+      .container.containerFix1300
+        %p.fs18
+          %strong Sản phẩm
+        .row
+          - sorted_products.each do |product|
+            .col-md-3.col-6
+              .item.my-1
+                %a.d-block.img-block{ href: product_path(product), title: product.name }
+                  .dad-block-100.figure2
+                    %img.child-block-scale.scale{ alt: product.name, src: product.image_url, loading: "lazy" }
+                .content-block 
+                  %a.d-block{ href: product_path(product), title: product.name }
+                    %h3.text-1.fs18.fw-600= product.name.capitalize
+                  .tag-infor
+                    - if product.prop( 'cach-nhiet').present?
+                      .tag-bl Cách nhiệt
+                    - if product.prop('chong-chay').present?
+                      .tag-bl Chống cháy
+                    - if product.prop( 'cach-am').present?
+                      .tag-bl Cách âm
+                    - if product.prop('tham-my').present?
+                      .tag-bl Thẩm mỹ
+                  - if product.description.present?
+                    %p.fs14.des= product.description
+  - elsif posts.present?
+    - sorted_posts = posts.sort_by { |p| I18n.transliterate(p.name.to_s).downcase }
+    %section.secSearch.secBlock1.py-5
+      .container.containerFix1300
+        %p.fs18
+          %strong Bài viết
+        .row
+          - sorted_posts.each do |post| 
+            .col-md-3.col-6
+              .item.my-1
+                %a.d-block.img-block{ href: post_path(post), title: post.name }
+                  .dad-block-100.figure2
+                    %img.child-block-scale.scale{ alt: post.name, src: post.image_url, loading: "lazy" }
+                .content-block 
+                  %a.d-block{ href: post_path(post), title: post.name }
+                    %h3.text-1.fs18.fw-600= post.name.capitalize
+                  - if post.description.present?
+                    %p.fs14.des= post.description
+  - else
+    %p.text-center Không tìm thấy sản phẩm/bài viết
+
+= render_view "components/footer"

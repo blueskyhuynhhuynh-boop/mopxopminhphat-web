@@ -1,0 +1,89 @@
+%main#Post.container-fluid 
+  -# .banner-inner
+  -#   .banner-img.pagesbanner
+  -#     %img.innerbanners.wk-editable-image#banner-inner-image{:alt => "Banner", :src => "/tassets/images/banner-catgory.webp"}/
+  -#   .banner-content
+  -#     .container.containerFix1300
+  -#       .banner-breadcrumbs
+  -#         %a.link-home{:href => root_path, :title => "Home"}
+  -#           Trang chủ
+  -#         - if (primary = post.primary_category).present?
+  -#           %a{:href => category_path(primary)}= primary.name
+  -#         \/
+  -#         %p.d-inline= post.name
+  %section.Search
+    .container.containerFix1300
+      .sidebar-search
+        %form{action: '/search', method: 'GET'}
+          %input{:type => "text",:placeholder => "Nhập từ khóa tìm kiếm"}/
+          %button.search-btn{:title => "Search",name: 'key', value: params[:key]}
+            %i.fa-solid.fa-magnifying-glass
+  %section.Post.py-md-5.py-4
+    .container.containerFix1300
+      %h1.text-title.text-center{"data-aos": "fade-down","data-aos-duration": "1000","data-aos-once": "true"}=post.name
+      .row{"data-aos": "fade","data-aos-duration": "1000","data-aos-once": "true"}
+        .col-md-9.col-12
+          .secPost
+            .date
+              .calendar-icon
+                %i.fa-solid.fa-calendar-days.mb-0
+              %p.text3.mb-0= post.created_at.localtime.strftime(' %d Tháng %m, %Y')
+            - if post.content.body.present?        
+              = render_view "components/table_of_content", locals: { content: post.content }
+              .data_contents
+                = post.content.body.html_safe
+            - pots = Post.published.limit(6).to_a
+            - if pots.any?
+              %section.listPost.py-md-4.py-3
+                %p.List-name Các tin khác
+                %ul
+                  - pots.each do |post|
+                    %li.d-flex
+                      %a{:href => post_path(post), :alt => post.name}= post.name
+                      %p.mb-0= post.created_at.localtime.strftime(' %d Tháng %m, %Y')
+            
+        .col-md-3.desktop-only
+          .sidebar-item.hotpro
+            .sidebar-title Tin xem nhiều
+            - pots = Post.joins(:tags).where(tags: { name: 'post-hot' }).published.limit(6).to_a
+            - if pots.any?
+              %section.secBlock1.secBlock2
+                .row
+                  - pots.each do |post|
+                    .col-12
+                      %a.item.d-block{:href => post_path(post), :alt => post.name}
+                        .img-block
+                          .dad-block-100.figure2
+                            %img.child-block-scale.scale{:alt => post.name, :src => post.image_url, :loading => "lazy"}/
+                        .content-block
+                          %p.text-1.fs16.fw-500= post.name
+  -# - if (featured_images = post.get_featured_images).any?
+  %section.imageCate.py-md-5.py-4
+    .container.containerFix1300
+      .owl-carousel.owl-theme.slideDuan
+        .item 
+          .dad
+            %img.child-block{:alt => "image post", :src => "/tassets/images/mopxop/6ed80aa8-2c73-414c-b3bf-af9d1d727582.jpeg",:loading => "lazy"}
+          .wrap-sub-text
+            .text Nguyên liệu ngoại nhập, an toàn cho sức khỏe.
+        .item 
+          .dad
+            %img.child-block{:alt => "image post", :src => "/tassets/images/mopxop/39ad2a2b-29ad-4326-9457-59ee013c3afe.jpeg",:loading => "lazy"}
+          .wrap-sub-text 
+            .text Sản phẩm đa dạng, đáp ứng mọi nhu cầu.
+        .item 
+          .dad
+            %img.child-block{:alt => "image post", :src => "/tassets/images/mopxop/baef840d-ebae-428e-b54f-3f84cd72862a.jpeg",:loading => "lazy"}
+          .wrap-sub-text 
+            .text Công nghệ hiện đại, chất lượng vượt trội.
+                        
+          -# .blockForm-4
+          -#   %p.fs15.fw-700.text1.wk-editable-html#Post-secPost-text9 ĐĂNG KÝ TƯ VẤN
+          -#   %form.menu-list.contact-form.dang-ky-tu-van{:target=> "/thank-you"}
+          -#     = hidden_field_tag :authenticity_token, form_authenticity_token
+          -#     = hidden_field_tag :form, 'lien-he'
+          -#     %input.input-tag{:placeholder => "Tên",name:'name'}
+          -#     %input.input-tag{:placeholder => "Email",name:'email'}
+          -#     %input.input-tag{:placeholder => "Điện thoại",name:'phone'}
+          -#     %textarea.input-tag.textArea{:placeholder => "Nội dung",name:'note'}
+          -#     %button.btt-more.t-center Gửi

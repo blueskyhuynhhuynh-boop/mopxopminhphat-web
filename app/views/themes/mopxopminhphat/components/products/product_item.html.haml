@@ -1,0 +1,10 @@
+.col-md-4.col-6
+  .item
+    %a.d-block.img-block{ href: product_path(product), title: product.name }
+      .dad-block-100.figure2
+        %img.child-block-scale.scale{ alt: product.name, src: product.image_url,:loading => "lazy" }
+    .content-block 
+      %a.d-block{ href: product_path(product), title: product.name }
+        %h3.text-1.fs18.fw-600= product.name.capitalize
+      - if product.description.present?
+        %p.fs14.des= product.description

@@ -1,0 +1,53 @@
+%h1.d-none= category.name
+%main#category_list
+  .banner-inner
+    .banner-img.pagesbanner
+      %img.innerbanners{:alt => "Banner", :src => category.image_url, :decoding => "async",:loading => "lazy"}/
+    .banner-content
+      .container.containerFix1300
+        .banner-breadcrumbs
+          %p.text-white.name= category.name
+          %a.link-home{:href => root_path, :title => "Home"}
+            Trang chủ
+          = category.name
+  %section.Search
+    .container.containerFix1300
+      .sidebar-search
+        %form{action: '/search', method: 'GET'}
+          %input{:type => "text",:placeholder => "Nhập từ khóa tìm kiếm",name: 'key', value: params[:key]}/
+          %button.search-btn{:title => "Search"}
+            %i.fa-solid.fa-magnifying-glass
+  - if category.children.any?
+    - category.children.order(:display_order).each do |cate|
+      %section.secBlock1.secCate.py-md-5.py-4.overflow-hidden
+        .container 
+          .home-title.text-center{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true"}= cate.name.upcase
+          - if cate.children.published.any?
+            .list-name.d-flex.mb-md-4.justify-content-center{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "300"}
+              - cate.children.published.each do | child |
+                %a.fw-700{:href => category_path(child),:title => child.name}= child.name.upcase
+            - if cate.description.present?
+              .desc{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "300"}
+                %p.text-center= cate.description
+          .owl-carousel.owl-theme.Home3{"data-aos": "fade-left","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "600"}
+            - cate.products.limit(4).each do |product|
+              .item.my-1
+                %a.d-block.img-block{ href: product_path(product), title: product.name }
+                  .dad-block-100.figure2
+                    %img.child-block-scale.scale{ alt: product.name, src: product.image_url,:loading => "lazy" }
+                .content-block 
+                  %a.d-block{ href: product_path(product), title: product.name }
+                    %h3.text-1.fs18.fw-600= product.name.capitalize
+                  .tag-infor
+                    - if product.prop( 'cach-nhiet').present?
+                      .tag-bl Cách nhiệt
+                    - if product.prop('chong-chay').present?
+                      .tag-bl Chống cháy
+                    - if product.prop( 'cach-am').present?
+                      .tag-bl Cách âm
+                    - if product.prop('tham-my').present?
+                      .tag-bl Thẩm mỹ
+                  - if product.description.present?
+                    %p.fs14.des= product.description
+          .about-btt.w-full.d-flex.justify-content-center
+            %a.home-more.mt-4.fw-600{:href => category_path(cate),:title => cate.name} Xem thêm

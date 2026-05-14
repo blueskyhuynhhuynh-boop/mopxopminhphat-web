@@ -1,0 +1,97 @@
+/ gắn data-toggle="modal" data-target="#popup_registration_1"  để mở popup này lên
+/ popup_registration_1
+#popup_registration_1.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content
+      .titlePart
+        %p.title ĐĂNG KÝ NHẬN TƯ VẤN
+        .underline
+        %a.close.closeItem{"data-dismiss" => "modal",:href => "#"}
+          x
+      .blockRegistration_1.FormContact
+        .container.containerFix1300
+          .wrap-form
+            %form.menu-list.contact-form.dang-ky-tu-van{:target=> "/thank-you"}
+              = hidden_field_tag :authenticity_token, form_authenticity_token
+              = hidden_field_tag :form, 'lien-he'
+              .row
+                .col-12
+                  .form-group
+                    %label.name Họ tên *
+                    %input.input-tag{name:'name'}
+                .col-12
+                  .form-group
+                    %label.name Email *
+                    %input.input-tag{name:'email'}
+                .col-12
+                  .form-group
+                    %label.name Điện thoại *
+                    %input.input-tag{name:'phone',:type => 'tel'}
+                .col-12
+                  .form-group
+                    %label.name Nội dung liên lạc *
+                    %textarea.input-tag.textArea{name:'note'}
+                %button.home-more.t-center.ml-3
+                  %i.fa-solid.fa-paper-plane.mb-0.mr-2
+                  Gửi
+
+/ gắn data-toggle="modal" data-target="#popupWhenClickContact"  để mở popup này lên
+/ popupWhenClickContact hỏi lại xác nhận có liên lạc không
+#popupWhenClickContact.modal.fade.popupAskContact{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content
+      .modal-header
+        %p.modal-title KẾT NỐI
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        Bạn có muốn kết nối với tư vấn viên của chúng tôi?
+      .modal-footer
+        %a.btnType_1{"data-dismiss" => "modal",:href => "#"} Hủy
+        %a.btnType_1.btnContact{:href => "", :rel => "nofollow", :target => "_blank" }
+
+#popupSearch.modal.fade.popupAskContact{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content
+      .modal-header
+        %p.modal-title Search
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        %form.searchBlock_1.search_mb.search.searchPart{ action: '/search', method: 'GET',:title => "form tìm kiếm" }
+          .inputBar
+            .form-group
+              %input.form-control#searchInput{ :placeholder => "Nhập từ khóa tìm kiếm....", :type => "text", name: 'key', value: params[:key] }
+            %button.button_search.submit
+              %i.iTagSearch.fa.fa-search.mb-0{ "aria-hidden" => "true" }
+          #search_autocomplete.box-search-result.search-autocomplete.block
+            .mb-1.category-box.block
+              %p.title-box Lịch sử tìm kiếm
+              .list-cate
+                #historyList
+
+-# .overlay#searchOverlay{ onclick: "closeSearchPopup(event)" }
+-#   .search-popup
+-#     %button.close-btn
+-#       %svg{ width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2" }
+-#         %line{ x1: "18", y1: "6", x2: "6", y2: "18" }
+-#         %line{ x1: "6", y1: "6", x2: "18", y2: "18" }
+
+-#     .search-header
+-#       .search-input-container
+-#         %input.search-input{ type: "text", placeholder: "Tìm kiếm bất cứ thứ gì...", id: "searchInput" }
+-#         %svg.search-icon{ width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2" }
+-#           %circle{ cx: "11", cy: "11", r: "8" }
+-#           %path{ d: "21 21l-4.35-4.35" }
+
+-#     .typing-indicator#typingIndicator
+-#       %span Đang tìm kiếm
+-#       .typing-dots
+-#         %span
+-#         %span
+-#         %span
+
+-#     .search-suggestions
+-#       .suggestion-title Gợi ý tìm kiếm
+
+    
