@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-  before_action :redirect_to_slash, except: :slug
+  # Disabled 2026-05: was 301-redirecting non-trailing-slash URLs which broke
+  # Google Ads destination checks. Both URL forms now serve 200 directly;
+  # canonical link in the layout still points to the trailing-slash version
+  # so search engines index the canonical URL.
+  # before_action :redirect_to_slash, except: :slug
   before_action :redirect_to_primary, except: :home
 
   include ActionCachable
