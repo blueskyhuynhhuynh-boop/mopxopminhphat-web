@@ -54,7 +54,7 @@
                     .menuItem_1
                       %a.linkLevel_1{ :href => category_path(category), :title => "#{category.name} sản phẩm" }= category.name
               .menuItem_1
-                %a.linkLevel_1.wk-editable-link#menu_desktop-link1{ :href => page_path("du-an"), :title => "Dự án" } Dự án
+                %a.linkLevel_1.wk-editable-link#menu_desktop-link1{ :href => "/tin-tuc-ung-dung/", :title => "Dự án" } Dự án
               - if post_categories.any?
                 - post_categories.each do |category|
                   - if category.children.any?
@@ -154,7 +154,7 @@
           .menuItem_1
             %a.linkLevel_1{:href => category_path(productCate)}= productCate.name 
     .menuItem_1
-      %a.linkLevel_1.wk-editable-link#menu_mobile-link4{:href => page_path('du-an')} Ứng dụng
+      %a.linkLevel_1.wk-editable-link#menu_mobile-link4{:href => "/tin-tuc-ung-dung/"} Ứng dụng
     - if post_categories.present?
       - post_categories.each do |category| 
         - if category.children.published.any?    
