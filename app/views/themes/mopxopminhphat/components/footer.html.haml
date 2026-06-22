@@ -17,10 +17,10 @@
             %span= "#{web_config('phone')}" + " - " + "#{web_config('phone_text')}"
           %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "1000"}
             %strong Email:
-            %span= "#{web_config('email')}"
+            %span!= "<!--email_off-->#{web_config('email')}<!--/email_off-->"
           %p{"data-aos": "fade-up","data-aos-duration": "1000","data-aos-once": "true","data-aos-delay": "1200"}
             %strong Email:
-            %span= "#{web_config('email2')}"
+            %span!= "<!--email_off-->#{web_config('email2')}<!--/email_off-->"
       .col-md-3.col-12
         .item.second-col 
           .title-footer.wk-editable-html#footer-text Chính sách

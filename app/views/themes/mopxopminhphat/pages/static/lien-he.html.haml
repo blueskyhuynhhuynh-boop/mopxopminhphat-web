@@ -21,11 +21,11 @@
             .text-contact.text-center
               %h3= "ĐỊA CHỈ:" + " " + "#{web_config("office_address")}"
               %p
-                %strong= "Điện thoại:" + " " + "#{web_config("phone")}" + " - " + "Email:" + " " + "#{web_config("email")}"
+                %strong!= "Điện thoại:" + " " + "#{web_config("phone")}" + " - " + "Email:" + " " + "<!--email_off-->#{web_config("email")}<!--/email_off-->"
             .text-contact.text-center
               %h3= "ĐỊA CHỈ:" + " " + "#{web_config("office_address2")}"
               %p
-                %strong= "Điện thoại:" + " " + "#{web_config("phone1")}" + " - " + "Email:" + " " + "#{web_config("email2")}"
+                %strong!= "Điện thoại:" + " " + "#{web_config("phone1")}" + " - " + "Email:" + " " + "<!--email_off-->#{web_config("email2")}<!--/email_off-->"
             .view-map
               %a.scroll-to{:href => "#map",:title => "map"}
                 %i.fa-solid.fa-location-dot.mb-0
