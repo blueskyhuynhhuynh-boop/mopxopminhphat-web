@@ -61,6 +61,13 @@ module MetaTagsHelper
       {:content => meta_title, :property => "og:image:alt"},
       {:content => meta_title, :property => "og:title"},
       {:content => meta_description, :property => "og:description"},
+      {:content => (web_config("website.name").presence || "Mốp Xốp Minh Phát"), :property => "og:site_name"},
+      {:content => "vi_VN", :property => "og:locale"},
+      {:content => "summary_large_image", :name => "twitter:card"},
+      {:content => meta_title, :name => "twitter:title"},
+      {:content => meta_description, :name => "twitter:description"},
+      {:content => meta_image, :name => "twitter:image"},
+      {:content => meta_title, :name => "twitter:image:alt"},
       {:content => meta_description, :name => "Abstract"}
     ]
   end
