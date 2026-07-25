@@ -34,7 +34,6 @@ module MetaTagsHelper
 
   def locale_meta_tags
     [
-      {:charset => "ISO-8859-1″", :content => "text/html;", "http-equiv" => "Content-Type"},
       {:content => "Vietnamese", "http-equiv" => "content-language"},
       {:content => "vi", "http-equiv" => "Content-Language"},
       {:content => "vn", :name => "Language"}
@@ -97,7 +96,7 @@ module MetaTagsHelper
   end
 
   def meta_image
-    meta_content.meta_image_url.present? ? full_asset_url(meta_content.meta_image_url) : full_asset_url(meta_content_owner.image_url)
+    full_asset_url(meta_content.meta_image_url.presence || meta_content_owner.try(:image_url).presence || web_config("logo_url"))
   end
 
   def meta_link
@@ -107,4 +106,39 @@ module MetaTagsHelper
   def canonical_url
     full_url_for_record meta_content_owner
   end
+
+  def organization_schema
+    {
+      "@context" => "https://schema.org",
+      "@type" => "Organization",
+      "name" => (web_config("website.name").presence || "Mốp Xốp Minh Phát"),
+      "url" => "https://mopxopminhphat.com",
+      "logo" => (web_config("logo_url").to_s.start_with?("http") ? web_config("logo_url") : "https://mopxopminhphat.com#{web_config("logo_url")}"),
+      "description" => (web_config("seo.organization_description").presence || "Công ty TNHH sản xuất thương mại Mốp Xốp Cách Nhiệt Minh Phát - chuyên cung cấp các loại mốp xốp, panel EPS cách nhiệt, xốp định hình."),
+      "address" => {
+        "@type" => "PostalAddress",
+        "streetAddress" => (web_config("office_address2").presence || "983 Kha Vạn Cân, Khu Phố 2, Phường Linh Xuân"),
+        "addressLocality" => "Thành Phố Thủ Đức",
+        "addressRegion" => "Thành Phố Hồ Chí Minh",
+        "addressCountry" => "VN"
+      },
+      "telephone" => (web_config("phone").presence || "+84 911 813 699").to_s.strip,
+      "email" => (web_config("email").presence || "huynhminh.minhphat@gmail.com"),
+      "sameAs" => [
+        web_config("social.facebook_link"),
+        web_config("social.youtube_link"),
+        web_config("social.zalo_link")
+      ].compact.reject(&:blank?)
+    }
+  end
+
+  def website_schema
+    {
+      "@context" => "https://schema.org",
+      "@type" => "WebSite",
+      "name" => (web_config("website.name").presence || "Mốp Xốp Minh Phát"),
+      "url" => "https://mopxopminhphat.com"
+    }
+  end
+
 end

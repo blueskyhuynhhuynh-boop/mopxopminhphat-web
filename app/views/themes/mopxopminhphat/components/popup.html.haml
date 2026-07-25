@@ -44,8 +44,8 @@
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
       .modal-body
-        Bạn có muốn kết nối với Siêu Thị Cá Koi?
+        Bạn có muốn kết nối với Mốp Xốp Minh Phát?
       .modal-footer
+        %a.btnType_2.btnContact#btn_phone_id_codiep.chooseContact.choosePhone{:style=>"background:blue",:href => "tel:0911813696", :rel => "nofollow", :target => "_blank"}Phone: 0911.813.696 (Cô Điệp)
         %a.btnType_2.btnContact#btn_phone_id_hcm.chooseContact.choosePhone{:style=>"background:blue",:href => "tel:#{web_config('phone')}", :rel => "nofollow", :target => "_blank",}Phone: #{web_config('phone')}
-        %a.btnType_2.btnContact#btn_phone_id_hn.chooseContact.choosePhone{:style=>"background:blue",:href => "tel:093 2262288", :rel => "nofollow", :target => "_blank"} Phone: 093 226 22 88
         %a.btnType_2.btnFinish{"data-dismiss" => "modal"} Hủy        
