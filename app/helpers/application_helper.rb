@@ -5,7 +5,9 @@ module ApplicationHelper
   end
 
   def full_asset_url(path)
-    "#{ENV['ASSET_HOST'] || ENV['HOST']}#{path}"
+    # ASSET_HOST is set-but-empty in production, and "" is truthy in Ruby, so a plain
+    # `||` here silently yielded a bare path and made og:url/og:image relative.
+    "#{ENV['ASSET_HOST'].presence || ENV['HOST']}#{path}"
   end
 
   def safe_eval_user_input(name)
